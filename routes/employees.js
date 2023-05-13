@@ -3,21 +3,21 @@
 const express = require('express');
 const routes = express.Router();
 
-const charactersController = require('../controllers/characters');
+const employeesController = require('../controllers/employees');
 const validation = require('../middleware/validate');
 const { isAuthenticated } = require("../middleware/authenticate");
 
 
 
-routes.get('/', charactersController.getAll);
+routes.get('/', employeesController.getAll);
 
-routes.get('/:id', charactersController.getSingle);
+routes.get('/:id', employeesController.getSingle);
 
-routes.post('/', isAuthenticated, validation.saveCharacter, charactersController.createContact);
+routes.post('/', isAuthenticated, validation.saveCharacter, employeesController.createEmployee);
 
-routes.put('/:id', isAuthenticated, validation.saveCharacter, charactersController.updateContact);
+routes.put('/:id', isAuthenticated, validation.saveCharacter, employeesController.updateEmcreateEmployee);
 
-routes.delete('/:id', isAuthenticated, charactersController.deleteContact);
+routes.delete('/:id', isAuthenticated, employeesController.deleteEmcreateEmployee);
 
 module.exports = routes;
 
