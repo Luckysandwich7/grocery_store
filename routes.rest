@@ -1,4 +1,4 @@
-//LOCALHOST CHaracters Collection
+//LOCALHOST Products Collection
 ### Get produce list
 GET http://localhost:3000/produce HTTP/1.1
 Content-Type: application/json
