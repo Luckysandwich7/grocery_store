@@ -12,7 +12,7 @@ const schema = Joi.object({
  });
 
 const getAll = async (req, res) => {
-    const result = await mongodb.getDb().db('cse341').collection('star_wars_planets').find();
+    const result = await mongodb.getDb().db('grocery_store').collection('bakery').find();
     result.toArray().then((lists) => {
       res.setHeader('Content-Type', 'application/json');
       res.status(200).json(lists);
@@ -21,18 +21,18 @@ const getAll = async (req, res) => {
 
 const getSingle = async (req, res) => {
   if (!ObjectId.isValid(req.params.id)) {
-    res.status(400).json('Must use a valid planet id to find planet') }
+    res.status(400).json('Must use a valid bakery item id to find item') }
     const userId = new ObjectId(req.params.id);
-    const result = await mongodb.getDb().db('cse341').collection('star_wars_planets').find({ _id: userId });
+    const result = await mongodb.getDb().db('grocery_store').collection('bakery').find({ _id: userId });
     result.toArray().then((lists) => {
       res.setHeader('Content-Type', 'application/json');
       res.status(200).json(lists[0]);
     });
   };
 
-const createContact = async (req, res) => {
+const createBakeryItem = async (req, res) => {
   try { const { error } = schema.validate(req.body); if (error) { return res.status(400).json({ error: error.details[0].message }); }
-    const contact = {
+    const bakeryItem = {
       planetName: req.body.planetName,
       region: req.body.region,
       sector: req.body.sector,
@@ -42,20 +42,20 @@ const createContact = async (req, res) => {
     };
     console.log(req.body);
 
-    const response = await mongodb.getDb().db('cse341').collection('star_wars_planets').insertOne(contact);
+    const response = await mongodb.getDb().db('grocery_store').collection('bakery').insertOne(bakeryItem);
     if (response.acknowledged) {
       res.status(201).json(response);
     } else {
-      res.status(500).json(response.error || 'Some error occurred while creating the contact.');
+      res.status(500).json(response.error || 'Some error occurred while creating the item.');
     }
   } catch (err) { res.status(500).json({ message: err.message }); }
 };
 
-const updateContact = async (req, res) => {
+const updateBakeryItem = async (req, res) => {
   if (!ObjectId.isValid(req.params.id)) {
-    res.status(400).json('Must use a valid planet id to find planet') }
+    res.status(400).json('Must use a valid bakery item id to find item') }
     const userId = new ObjectId(req.params.id);
-    const contact = {
+    const bakeryItem = {
       $set: {
         planetName: req.body.planetName,
         region: req.body.region,
@@ -67,34 +67,34 @@ const updateContact = async (req, res) => {
     };
     const response = await mongodb
       .getDb()
-      .db('cse341')
-      .collection('star_wars_planets')
-      .updateOne({ _id: userId }, contact);
+      .db('grocery_store')
+      .collection('bakery')
+      .updateOne({ _id: userId }, bakeryItem);
     console.log(response);
     if (response.modifiedCount > 0) {
       res.status(204).send();
     } else {
-      res.status(500).json(response.error || 'Some error occurred while updating the contact.');
+      res.status(500).json(response.error || 'Some error occurred while updating the bakery item.');
     }
 };
 
-const deleteContact = async (req, res) => {
+const deleteBakeryItem = async (req, res) => {
   if (!ObjectId.isValid(req.params.id)) {
-    res.status(400).json('Must use a valid planet id to find planet') }
+    res.status(400).json('Must use a valid bakery item id to find bakery item') }
     const userId = new ObjectId(req.params.id);
     const response = await mongodb
       .getDb()
-      .db('cse341')
-      .collection('star_wars_planets')
+      .db('grocery_store')
+      .collection('bakery')
       .remove({ _id: userId }, true);
     console.log(response);
     if (response.deletedCount > 0) {
       res.status(200).send();
     } else {
-      res.status(500).json(response.error || 'Some error occurred while deleting the contact.');
+      res.status(500).json(response.error || 'Some error occurred while deleting the bakery item.');
     }
   };
 
-module.exports = { getAll, getSingle, createContact, updateContact, deleteContact };
+module.exports = { getAll, getSingle, createBakeryItem, updateBakeryItem, deleteBakeryItem };
 
 //Sheyla's assignment
