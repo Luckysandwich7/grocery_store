@@ -22,14 +22,17 @@ const saveDeli = (req, res, next) => {
   });
 };
 
-const saveCharacter = (req, res, next) => {
+const saveProduce = (req, res, next) => {
     const validationRule = {
-      firstName: 'required|string',
-      lastName: 'required|string',
-      gender: 'required|string',
-      race: 'required|string',
-      vehicle: 'required|string',
-      affiliation: 'required|string'
+      productName: 'required|string',
+      department: 'required|string',
+      type: 'required|string',
+      color: 'required|string',
+      quality: 'required|string',
+      unit: 'required|string',
+      peakSeason: 'required|string',
+      amountInStock: 'required|integer',
+      pricePerUnit: 'required|decimal',
     };
     validator(req.body, validationRule, {}, (err, status) => {
       if (!status) {
@@ -46,5 +49,5 @@ const saveCharacter = (req, res, next) => {
 
 module.exports = {
   saveDeli,
-  saveCharacter
+  saveProduce
 };

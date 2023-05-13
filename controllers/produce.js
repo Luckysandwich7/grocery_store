@@ -5,11 +5,11 @@ const schema = Joi.object({
   productName: Joi.string().required().empty(), 
   department: Joi.string().required().empty(),
   type: Joi.string().required().empty(),
-  color: Joi.string().empty(),
-  quality: Joi.string(),
+  color: Joi.string().required().empty(),
+  quality: Joi.string().required().empty(),
   peakSeason: Joi.string().required().empty(), 
   amountInStock: Joi.int32().required().empty(), 
-  pricePerUnit: Joi.decimal128().empty(),
+  pricePerUnit: Joi.decimal128().required().empty(),
   unit: Joi.string().required().empty()
  });
 
