@@ -10,9 +10,9 @@ routes.get('/', deliController.getAll);
 
 routes.get('/:id', deliController.getSingle);
 
-routes.post('/', isAuthenticated, validation.savePlanet, deliController.createContact);
+routes.post('/', isAuthenticated, validation.saveDeli, deliController.createContact);
 
-routes.put('/:id', isAuthenticated, validation.savePlanet, deliController.updateContact);
+routes.put('/:id', isAuthenticated, validation.saveDeli, deliController.updateContact);
 
 routes.delete('/:id', isAuthenticated, deliController.deleteContact);
 

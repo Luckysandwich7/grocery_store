@@ -1,13 +1,13 @@
 const validator = require('../helpers/validate');
 
-const savePlanet = (req, res, next) => {
+const saveDeli = (req, res, next) => {
   const validationRule = {
-    planetName: 'required|string',
-    region: 'required|string',
-    sector: 'required|string',
-    suns: 'required|integer',
-    moons: 'required|integer',
-    terrain: 'string'
+    type: 'required|string',
+    productName: 'required|string',
+    price: 'required|string',
+    calories: 'required|decimal',
+    quantity: 'required|integer',
+    count: 'integer'
   };
   validator(req.body, validationRule, {}, (err, status) => {
     if (!status) {
@@ -45,6 +45,6 @@ const saveCharacter = (req, res, next) => {
   };
 
 module.exports = {
-  savePlanet,
+  saveDeli,
   saveCharacter
 };
