@@ -14,6 +14,6 @@ routes.post('/', isAuthenticated, validation.saveDeli, deliController.createDeli
 
 routes.put('/:id', isAuthenticated, validation.saveDeli, deliController.updateDeli);
 
-routes.delete('/:id', isAuthenticated, deliController.deleteContact);
+routes.delete('/:id', isAuthenticated, deliController.deleteDeli);
 
 module.exports = routes;
