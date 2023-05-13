@@ -3,9 +3,10 @@ const swaggerAutogen = require('swagger-autogen')();
 const doc = {
   info: {
     title: 'My API',
-    description: 'Star Wars API'
+    description: 'Grocery Store API'
   },
-  host: 'ryanalvordcit341.onrender.com',
+  //Need to create new Render and add host name
+  host: '',
   schemes: ['https']
 };
 
