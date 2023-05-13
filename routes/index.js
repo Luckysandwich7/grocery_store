@@ -3,8 +3,8 @@ const router = express.Router();
 const passport = require('passport');
 
 router.use('/', require('./swagger'));
-router.use('/characters', require('./characters'));
-router.use('/planets', require('./planets'));
+router.use('/employees', require('./employees'));
+
 
 router.get('/login', passport.authenticate('github'), (req, res) => {});
 

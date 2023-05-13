@@ -13,11 +13,11 @@ routes.get('/', employeesController.getAll);
 
 routes.get('/:id', employeesController.getSingle);
 
-routes.post('/', isAuthenticated, validation.saveCharacter, employeesController.createContact);
+routes.post('/', isAuthenticated, validation.saveCharacter, employeesController.createEmployee);
 
-routes.put('/:id', isAuthenticated, validation.saveCharacter, employeesController.updateContact);
+routes.put('/:id', isAuthenticated, validation.saveCharacter, employeesController.updateEmcreateEmployee);
 
-routes.delete('/:id', isAuthenticated, employeesController.deleteContact);
+routes.delete('/:id', isAuthenticated, employeesController.deleteEmcreateEmployee);
 
 module.exports = routes;
 
