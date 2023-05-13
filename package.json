@@ -12,7 +12,7 @@
     "format": "prettier --write \"**/*.{js,jsx,ts,tsx,css,md,json}\" --config ./.prettierrc",
     "swagger": "node ./swagger.js"
   },
-  "author": "Ryan Alvord",
+  "author": "Ryan Alvord, Shelya Norton, Peace Arikpo, Millie Swain",
   "license": "ISC",
   "dependencies": {
     "body-parser": "^1.20.2",
