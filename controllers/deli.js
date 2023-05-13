@@ -11,7 +11,7 @@ const schema = Joi.object({
   count: Joi.integer().required().empty()
  });
 
-const getAll = async (req, res) => {
+const getAllDeli = async (req, res) => {
     const result = await mongodb.getDb().db('grocery_store').collection('deli').find();
     result.toArray().then((lists) => {
       res.setHeader('Content-Type', 'application/json');
@@ -19,7 +19,7 @@ const getAll = async (req, res) => {
     });
   };
 
-const getSingle = async (req, res) => {
+const getSingleDeli = async (req, res) => {
   if (!ObjectId.isValid(req.params.id)) {
     res.status(400).json('Must use a valid planet id to find planet') }
     const userId = new ObjectId(req.params.id);
@@ -30,7 +30,7 @@ const getSingle = async (req, res) => {
     });
   };
 
-const createContact = async (req, res) => {
+const createDeli = async (req, res) => {
   try { const { error } = schema.validate(req.body); if (error) { return res.status(400).json({ error: error.details[0].message }); }
     const contact = {
       type: req.body.type,
@@ -51,7 +51,7 @@ const createContact = async (req, res) => {
   } catch (err) { res.status(500).json({ message: err.message }); }
 };
 
-const updateContact = async (req, res) => {
+const updateDeli = async (req, res) => {
   if (!ObjectId.isValid(req.params.id)) {
     res.status(400).json('Must use a valid deli id to find product') }
     const userId = new ObjectId(req.params.id);
@@ -78,7 +78,7 @@ const updateContact = async (req, res) => {
     }
 };
 
-const deleteContact = async (req, res) => {
+const deleteDeli = async (req, res) => {
   if (!ObjectId.isValid(req.params.id)) {
     res.status(400).json('Must use a valid deli id to find deli item') }
     const userId = new ObjectId(req.params.id);
@@ -95,4 +95,4 @@ const deleteContact = async (req, res) => {
     }
   };
 
-module.exports = { getAll, getSingle, createContact, updateContact, deleteContact };
+module.exports = { getAllDeli, getSingleDeli, createDeli, updateDeli, deleteDeli };

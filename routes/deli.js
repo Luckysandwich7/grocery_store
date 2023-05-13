@@ -6,13 +6,13 @@ const deliController = require('../controllers/deli');
 const validation = require('../middleware/validate');
 const { isAuthenticated } = require("../middleware/authenticate");
 
-routes.get('/', deliController.getAll);
+routes.get('/', deliController.getAllDeli);
 
-routes.get('/:id', deliController.getSingle);
+routes.get('/:id', deliController.getSingleDeli);
 
-routes.post('/', isAuthenticated, validation.saveDeli, deliController.createContact);
+routes.post('/', isAuthenticated, validation.saveDeli, deliController.createDeli);
 
-routes.put('/:id', isAuthenticated, validation.saveDeli, deliController.updateContact);
+routes.put('/:id', isAuthenticated, validation.saveDeli, deliController.updateDeli);
 
 routes.delete('/:id', isAuthenticated, deliController.deleteContact);
 
