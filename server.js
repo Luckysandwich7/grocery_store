@@ -65,25 +65,6 @@ app.get('/github/callback', passport.authenticate('github', {
     res.redirect('/');
   });
 
-// OLD APP USE
-// app
-//   .use('/', bodyParser.json())
-//   .use(bodyParser.urlencoded({ extended: false }))
-//   .use((req, res, next) => {
-//     // Who has access to the database via URL
-//     res.setHeader('Access-Control-Allow-Headers', 'Origin, X-Requested-With, Content-Type, Accept, Z-Key');
-//     // res.setHeader('Content-Type', 'application/json');
-//     res.setHeader('Access-Control-Allow-Methods', 'GET, POST, PUT, DELETE, OPTIONS');
-//     res.setHeader('Access-Control-Allow-Origin', '*');
-//     // What control they have over
-//     next();
-//   }) 
-//   .use('/', require('./routes'));
-
-//   process.on('uncaughtException', (err, origin) => {
-//     console.log(process.stderr.fd, `Caught exception: ${err}\n` + `Exception origin: ${origin}`);
-//   });
-
 mongodb.initDb((err) => {
   if (err) {
     console.log(err);
