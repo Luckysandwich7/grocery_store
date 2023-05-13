@@ -3,12 +3,12 @@ const mongodb = require('../db/connect.js');
 const ObjectId = require('mongodb').ObjectId;
 const Joi = require('joi');
 const schema = Joi.object({ 
-  planetName: Joi.string().required().empty(), 
-  region: Joi.string().required().empty(),
-  sector: Joi.string().required().empty(),
-  suns: Joi.number().required().empty(), 
-  moons: Joi.number().required().empty(), 
-  terrain: Joi.string().required().empty()
+  type: Joi.string().required().empty(), 
+  productName: Joi.string().required().empty(),
+  price: Joi.number().required().empty(),
+  quantity: Joi.number().required().empty(), 
+  allergens: Joi.string().required().empty(), 
+  flavor: Joi.string().required().empty()
  });
 
 const getAll = async (req, res) => {
@@ -33,12 +33,12 @@ const getSingle = async (req, res) => {
 const createBakeryItem = async (req, res) => {
   try { const { error } = schema.validate(req.body); if (error) { return res.status(400).json({ error: error.details[0].message }); }
     const bakeryItem = {
-      planetName: req.body.planetName,
-      region: req.body.region,
-      sector: req.body.sector,
-      suns: req.body.suns,
-      moons: req.body.moons,
-      terrain: req.body.terrain
+      type: req.body.type,
+      productName: req.body.productName,
+      price: req.body.price,
+      quantity: req.body.quantity,
+      allergens: req.body.allergens,
+      flavor: req.body.flavor
     };
     console.log(req.body);
 
@@ -57,12 +57,12 @@ const updateBakeryItem = async (req, res) => {
     const userId = new ObjectId(req.params.id);
     const bakeryItem = {
       $set: {
-        planetName: req.body.planetName,
-        region: req.body.region,
-        sector: req.body.sector,
-        suns: req.body.suns,
-        moons: req.body.moons,
-        terrain: req.body.terrain
+        type: req.body.type,
+        productName: req.body.productName,
+        price: req.body.price,
+        quantity: req.body.quantity,
+        allergens: req.body.allergens,
+        flavor: req.body.flavor
       }
     };
     const response = await mongodb
