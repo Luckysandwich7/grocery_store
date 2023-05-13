@@ -2,18 +2,18 @@
 const express = require('express');
 const routes = express.Router();
 
-const planetsController = require('../controllers/planets');
+const produceController = require('../controllers/produce');
 const validation = require('../middleware/validate');
 const { isAuthenticated } = require("../middleware/authenticate");
 
-routes.get('/', planetsController.getAll);
+routes.get('/', produceController.getAll);
 
-routes.get('/:id', planetsController.getSingle);
+routes.get('/:id', produceController.getSingle);
 
-routes.post('/', isAuthenticated, validation.savePlanet, planetsController.createContact);
+routes.post('/', isAuthenticated, validation.saveProduce, produceController.createProduct);
 
-routes.put('/:id', isAuthenticated, validation.savePlanet, planetsController.updateContact);
+routes.put('/:id', isAuthenticated, validation.saveProduce, produceController.updateProduct);
 
-routes.delete('/:id', isAuthenticated, planetsController.deleteContact);
+routes.delete('/:id', isAuthenticated, produceController.deleteProduct);
 
 module.exports = routes;
