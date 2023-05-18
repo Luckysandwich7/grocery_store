@@ -8,32 +8,41 @@ const schema = Joi.object({
   color: Joi.string().required().empty(),
   quality: Joi.string().required().empty(),
   peakSeason: Joi.string().required().empty(), 
-  amountInStock: Joi.int32().required().empty(), 
-  pricePerUnit: Joi.decimal128().required().empty(),
+  amountInStock: Joi.integer().required().empty(), 
+  pricePerUnit: Joi.decimal().required().empty(),
   unit: Joi.string().required().empty()
  });
 
 const getAll = async (req, res) => {
+  try {
     const result = await mongodb.getDb().db('grocery_store').collection('produce').find();
     result.toArray().then((lists) => {
       res.setHeader('Content-Type', 'application/json');
       res.status(200).json(lists);
     });
-  };
+  } catch (err) {
+    res.status(500).json({message: err.message});
+  }
+};
 
 const getSingle = async (req, res) => {
-  if (!ObjectId.isValid(req.params.id)) {
-    res.status(400).json('Must use a valid product id to find produce') }
-    const productId = new ObjectId(req.params.id);
-    const result = await mongodb.getDb().db('grocery_store').collection('produce').find({ _id: productId });
-    result.toArray().then((lists) => {
-      res.setHeader('Content-Type', 'application/json');
-      res.status(200).json(lists[0]);
-    });
-  };
+  try {
+    if (!ObjectId.isValid(req.params.id)) {
+      res.status(400).json('Must use a valid product id to find produce') }
+      const productId = new ObjectId(req.params.id);
+      const result = await mongodb.getDb().db('grocery_store').collection('produce').find({ _id: productId });
+      result.toArray().then((lists) => {
+        res.setHeader('Content-Type', 'application/json');
+        res.status(200).json(lists[0]);
+      });
+  } catch {err} {
+    res.status(500).json({err});
+  }
+};
 
 const createProduct = async (req, res) => {
-  try { const { error } = schema.validate(req.body); if (error) { return res.status(400).json({ error: error.details[0].message }); }
+  try { 
+    //const { error } = schema.validate(req.body); if (error) { return res.status(400).json({ error: error.details[0].message }); }
     const product = {
       productName: req.body.productName,
       department: req.body.department,
@@ -46,22 +55,21 @@ const createProduct = async (req, res) => {
       unit: req.body.unit
     };
     console.log(req.body);
-
     const response = await mongodb.getDb().db('grocery_store').collection('produce').insertOne(product);
     if (response.acknowledged) {
       res.status(201).json(response);
     } else {
       res.status(500).json(response.error || 'Some error occurred while creating the product.');
     }
-  } catch (err) { res.status(500).json({ message: err.message }); }
+  } catch (err) { res.status(500).json({ message: err.message });
+ }
 };
 
 const updateProduct = async (req, res) => {
   if (!ObjectId.isValid(req.params.id)) {
     res.status(400).json('Must use a valid product id to find produce') }
-    const productId = new ObjectId(req.params.id);
+    const productId = new ObjectId({ id: req.params.id });
     const product = {
-      $set: {
         productName: req.body.productName,
         department: req.body.department,
         type: req.body.type,
@@ -71,7 +79,6 @@ const updateProduct = async (req, res) => {
         amountInStock: req.body.amountInStock,
         pricePerUnit: req.body.pricePerUnit,
         unit: req.body.unit
-      }
     };
     const response = await mongodb
       .getDb()
@@ -89,7 +96,7 @@ const updateProduct = async (req, res) => {
 const deleteProduct = async (req, res) => {
   if (!ObjectId.isValid(req.params.id)) {
     res.status(400).json('Must use a valid product id to find produce') }
-    const productId = new ObjectId(req.params.id);
+    const productId = new ObjectId({ id: req.params.id });
     const response = await mongodb
       .getDb()
       .db('grocery_store')
