@@ -3,6 +3,8 @@ const router = express.Router();
 const passport = require('passport');
 
 router.use('/', require('./swagger'));
+
+router.use('/employees', require('./employees'));
 router.use('/deli', require('./deli'));
 router.use('/produce', require('./produce'));
 
