@@ -53,7 +53,7 @@
     "/bakery/": {
       "get": {
         "tags": ["Bakery"],
-        "description": "",
+        "description": "Get all Bakery Items in the Bakery Collection, part of the Grocery Store Database",
         "produces": [
           "application/json"
         ],
@@ -66,7 +66,7 @@
       },
       "post": {
         "tags": ["Bakery"],
-        "description": "",
+        "description": "Create new Bakery Items in the Bakery Collection, part of the Grocery Store Database",
         "parameters": [],
         "responses": {
           "401": {
@@ -78,7 +78,7 @@
     "/bakery/{id}": {
       "get": {
         "tags": ["Bakery"],
-        "description": "",
+        "description": "Get Single Bakery Items in the Bakery Collection, part of the Grocery Store Database",
         "produces": [
           "application/json"
         ],
@@ -101,7 +101,7 @@
       },
       "put": {
         "tags": ["Bakery"],
-        "description": "",
+        "description": "Modify a Single Bakery Item in the Bakery Collection, part of the Grocery Store Database",
         "parameters": [
           {
             "name": "id",
@@ -118,7 +118,7 @@
       },
       "delete": {
         "tags": ["Bakery"],
-        "description": "",
+        "description": "Delete a Single Bakery Item in the Bakery Collection, part of the Grocery Store Database",
         "parameters": [
           {
             "name": "id",
@@ -137,7 +137,7 @@
     "/employees/": {
       "get": {
         "tags": ["Employees"],
-        "description": "",
+        "description": "Get all employees from the Employee Collection, part of the Grocery Store Database",
         "produces": [
           "application/json"
         ],
@@ -150,7 +150,7 @@
       },
       "post": {
         "tags": ["Employees"],
-        "description": "",
+        "description": "Create a new employee in the Employee Collection, part of the Grocery Store Database",
         "parameters": [
           {
             "name": "body",
@@ -196,7 +196,7 @@
     "/employees/{id}": {
       "get": {
         "tags": ["Employees"],
-        "description": "",
+        "description": "Get a single employees information from the Employee Collection, part of the Grocery Store Database",
         "produces": [
           "application/json"
         ],
@@ -219,7 +219,7 @@
       },
       "put": {
         "tags": ["Employees"],
-        "description": "",
+        "description": "Modify employee information from the Employee Collection, part of the Grocery Store Database",
         "parameters": [
           {
             "name": "id",
@@ -236,7 +236,7 @@
       },
       "delete": {
         "tags": ["Employees"],
-        "description": "",
+        "description": "Delete employee information from the Employee Collection, part of the Grocery Store Database",
         "parameters": [
           {
             "name": "id",
@@ -255,7 +255,7 @@
     "/deli/": {
       "get": {
         "tags": ["Deli"],
-        "description": "",
+        "description": "Get all Items in the Deli Collection from the Grocery Store Database",
         "produces": [
           "application/json"
         ],
@@ -268,7 +268,7 @@
       },
       "post": {
         "tags": ["Deli"],
-        "description": "",
+        "description": "Create a Deli Items in the Deli Collection from the Grocery Store Database",
         "parameters": [
           {
             "name": "body",
@@ -320,7 +320,7 @@
     "/deli/{id}": {
       "get": {
         "tags": ["Deli"],
-        "description": "",
+        "description": "Get a single Deli Items in the Deli Collection from the Grocery Store Database",
         "produces": [
           "application/json"
         ],
@@ -343,7 +343,7 @@
       },
       "put": {
         "tags": ["Deli"],
-        "description": "",
+        "description": "Modify a single Deli Items in the Deli Collection from the Grocery Store Database",
         "parameters": [
           {
             "name": "id",
@@ -399,7 +399,7 @@
       },
       "delete": {
         "tags": ["Deli"],
-        "description": "",
+        "description": "Delete a Deli Items in the Deli Collection from the Grocery Store Database",
         "parameters": [
           {
             "name": "id",
@@ -427,7 +427,7 @@
     "/produce/": {
       "get": {
         "tags": ["Produce"],
-        "description": "",
+        "description": "Get all the Produce items in the Produce Collection in the Grocery Store Database",
         "produces": [
           "application/json"
         ],
@@ -443,7 +443,7 @@
       },
       "post": {
         "tags": ["Produce"],
-        "description": "",
+        "description": "Create a new Produce item in the Produce Collection in the Grocery Store Database",
         "parameters": [
           {
             "name": "body",
@@ -501,7 +501,7 @@
     "/produce/{id}": {
       "get": {
         "tags": ["Produce"],
-        "description": "",
+        "description": "Get a single Produce items in the Produce Collection in the Grocery Store Database",
         "produces": [
           "application/json"
         ],
@@ -527,7 +527,7 @@
       },
       "put": {
         "tags": ["Produce"],
-        "description": "",
+        "description": "Modify a Produce item in the Produce Collection in the Grocery Store Database",
         "parameters": [
           {
             "name": "id",
@@ -592,7 +592,7 @@
       },
       "delete": {
         "tags": ["Produce"],
-        "description": "",
+        "description": "Delete a Produce item in the Produce Collection in the Grocery Store Database",
         "parameters": [
           {
             "name": "id",
