@@ -13,9 +13,9 @@ routes.get('/', employeesController.getAll);
 
 routes.get('/:id', employeesController.getSingle);
 
-routes.post('/', isAuthenticated, validation.saveCharacter, employeesController.createEmployee);
+routes.post('/', isAuthenticated, validation.saveEmployee, employeesController.createEmployee);
 
-routes.put('/:id', isAuthenticated, validation.saveCharacter, employeesController.updateEmcreateEmployee);
+routes.put('/:id', isAuthenticated, validation.saveEmployee, employeesController.updateEmcreateEmployee);
 
 routes.delete('/:id', isAuthenticated, employeesController.deleteEmcreateEmployee);
 
