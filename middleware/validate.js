@@ -22,14 +22,14 @@ const saveDeli = (req, res, next) => {
   });
 };
 
-const saveCharacter = (req, res, next) => {
+const saveEmployee = (req, res, next) => {
     const validationRule = {
       firstName: 'required|string',
       lastName: 'required|string',
       gender: 'required|string',
-      race: 'required|string',
-      vehicle: 'required|string',
-      affiliation: 'required|string'
+      personalEmail: 'required|string',
+      jobTitle: 'required|string',
+      workEmail: 'required|string'
     };
     validator(req.body, validationRule, {}, (err, status) => {
       if (!status) {
@@ -46,5 +46,5 @@ const saveCharacter = (req, res, next) => {
 
 module.exports = {
   saveDeli,
-  saveCharacter
+  saveEmployee
 };
