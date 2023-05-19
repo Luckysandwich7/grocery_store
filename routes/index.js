@@ -7,10 +7,10 @@ router.use('/', require('./swagger'));
 router.use('/employees', require('./employees'));
 router.use('/deli', require('./deli'));
 
-router.get('/login', passport.authenticate('github'), (req, res) => {});
+router.get('/login', passport.authenticate('github'), (req, res) => { });
 
-router.get('/logout', function(req, res, next) {
-    req.logout(function(err) {
+router.get('/logout', function (req, res, next) {
+    req.logout(function (err) {
         if (err) { return next(err); }
         res.redirect('/');
     });
