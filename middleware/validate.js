@@ -97,5 +97,7 @@ const saveProduce = (req, res, next) => {
   };
 module.exports = {
   saveDeli,
-  saveProduce
+  saveProduce,
+  saveBakery,
+  saveEmployee
 };
