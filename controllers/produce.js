@@ -33,7 +33,6 @@ const getSingle = async (req, res) => {
 };
 
 const createProduct = async (req, res) => {
-<<<<<<< HEAD
   // #swagger.tags=['Produce']
   // #swagger.summary= Create a new Produce item
   // #swagger.description=Create a new Produce item from the Produce Collection
@@ -66,10 +65,6 @@ const updateProduct = async (req, res) => {
   };
   const productId = new ObjectId({ id: req.params.id });
   const product = {
-=======
-  try { const { error } = schema.validate(req.body); if (error) { return res.status(400).json({ error: error.details[0].message }); }
-    const product = {
->>>>>>> 7c76506845a2b8ec42d9cebf73465ca940149df5
       productName: req.body.productName,
       department: req.body.department,
       type: req.body.type,
