@@ -5,7 +5,7 @@ const Joi = require('joi');
 const schema = Joi.object({ 
   type: Joi.string().required().empty(), 
   productName: Joi.string().required().empty(),
-  price: Joi.number().required().empty(),
+  price: Joi.integer().required().empty(),
   calories: Joi.number().required().empty(), 
   quantity: Joi.number().required().empty(), 
   count: Joi.number().required().empty()
