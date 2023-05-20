@@ -616,7 +616,7 @@
         "tags": [
           "Produce"
         ],
-        "description": "",
+        "description": "Get all Produce from the Produce Collection",
         "produces": [
           "application/json"
         ],
@@ -634,7 +634,7 @@
         "tags": [
           "Produce"
         ],
-        "description": "",
+        "description": "Create a new Produce item from the Produce Collection",
         "parameters": [
           {
             "name": "body",
@@ -697,7 +697,7 @@
         "tags": [
           "Produce"
         ],
-        "description": "",
+        "description": "Get a Produce item from the Produce Collection",
         "produces": [
           "application/json"
         ],
@@ -725,7 +725,7 @@
         "tags": [
           "Produce"
         ],
-        "description": "",
+        "description": "Modify a Produce item from the Produce Collection",
         "parameters": [
           {
             "name": "id",
@@ -792,7 +792,7 @@
         "tags": [
           "Produce"
         ],
-        "description": "",
+        "description": "Delete a Produce item from the Produce Collection",
         "parameters": [
           {
             "name": "id",
