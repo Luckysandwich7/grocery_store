@@ -40,7 +40,7 @@ const getSingle = async (req, res) => {
 
 const createProduct = async (req, res) => {
   try { 
-    const { error } = schema.validate(req.body); if (error) { return res.status(400).json({ error: error.details[0].message }); }
+    // const { error } = schema.validate(req.body); if (error) { return res.status(400).json({ error: error.details[0].message }); }
     const product = {
       productName: req.body.productName,
       department: req.body.department,
