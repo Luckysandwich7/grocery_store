@@ -1,15 +1,6 @@
 //Ryan's Assignment
 const mongodb = require('../db/connect.js');
 const ObjectId = require('mongodb').ObjectId;
-const Joi = require('joi');
-const schema = Joi.object({ 
-  type: Joi.string().required().empty(), 
-  productName: Joi.string().required().empty(),
-  price: Joi.string().required().empty(),
-  calories: Joi.number().required().empty(), 
-  quantity: Joi.number().required().empty(), 
-  count: Joi.number().required().empty()
- });
 
 const getAllDeli = async (req, res) => {
     const result = await mongodb.getDb().db('grocery_store').collection('deli').find();
@@ -31,7 +22,6 @@ const getSingleDeli = async (req, res) => {
   };
 
 const createDeli = async (req, res) => {
-  try { const { error } = schema.validate(req.body); if (error) { return res.status(400).json({ error: error.details[0].message }); }
     const contact = {
       type: req.body.type,
       productName: req.body.productName,
@@ -48,7 +38,6 @@ const createDeli = async (req, res) => {
     } else {
       res.status(500).json(response.error || 'Some error occurred while creating the product.');
     }
-  } catch (err) { res.status(500).json({ message: err.message }); }
 };
 
 const updateDeli = async (req, res) => {

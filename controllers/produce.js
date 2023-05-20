@@ -1,17 +1,5 @@
 const mongodb = require('../db/connect.js');
 const ObjectId = require('mongodb').ObjectId;
-const Joi = require('joi');
-const schema = Joi.object({ 
-  productName: Joi.string().required().empty(), 
-  department: Joi.string().required().empty(),
-  type: Joi.string().required().empty(),
-  color: Joi.string().required().empty(),
-  quality: Joi.string().required().empty(),
-  peakSeason: Joi.string().required().empty(), 
-  amountInStock: Joi.number().required().empty(), 
-  pricePerUnit: Joi.string().required().empty(),
-  unit: Joi.string().required().empty()
- });
 
 const getAll = async (req, res) => {
   try {
@@ -39,8 +27,6 @@ const getSingle = async (req, res) => {
 };
 
 const createProduct = async (req, res) => {
-  try { 
-    // const { error } = schema.validate(req.body); if (error) { return res.status(400).json({ error: error.details[0].message }); }
     const product = {
       productName: req.body.productName,
       department: req.body.department,
@@ -59,8 +45,6 @@ const createProduct = async (req, res) => {
     } else {
       res.status(500).json(response.error || 'Some error occurred while creating the product.');
     }
-  } catch (err) { res.status(500).json({ message: err.message });
- }
 };
 
 const updateProduct = async (req, res) => {
