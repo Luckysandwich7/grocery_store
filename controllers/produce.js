@@ -77,7 +77,7 @@ const updateProduct = async (req, res) => {
     .getDb()
     .db('grocery_store')
     .collection('produce')
-    .updateOne({ _id: productId }, product);
+    .replaceOne({ _id: productId }, product);
   console.log(response);
   if (response.modifiedCount > 0) {
     res.status(204).send();
