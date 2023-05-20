@@ -9,6 +9,10 @@
   "basePath": "/",
   "tags": [
     {
+      "name": "User",
+      "description": "Login or Logout of your account"
+    },
+    {
       "name": "Employees",
       "description": "Add or make edits to the Employee Collection in the Grocery Store Database"
     },
@@ -23,10 +27,6 @@
     {
       "name": "Produce",
       "description": "Add or make edits to the Bakery Items in the Grocery Store Database"
-    },
-    {
-      "name": "User",
-      "description": "Login or Logout of your account"
     }
   ],
   "schemes": [
