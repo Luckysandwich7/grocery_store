@@ -45,7 +45,6 @@ const saveProduce = (req, res, next) => {
         next();
       }
     });
-  };
 
   const saveBakery = (req, res, next) => {
     const validationRule = {
@@ -68,6 +67,7 @@ const saveProduce = (req, res, next) => {
       }
     });
   };
+  
   const saveEmployee = (req, res, next) => {
     const validationRule = {
       firstName: 'required|string',
