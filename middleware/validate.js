@@ -73,23 +73,20 @@ const saveProduce = (req, res, next) => {
   };
   const saveEmployee = (req, res, next) => {
     const validationRule = {
-      productName: 'required|string',
-      department: 'required|string',
-      type: 'required|string',
-      color: 'required|string',
-      quality: 'required|string',
-      unit: 'required|string',
-      peakSeason: 'required|string',
-      amountInStock: 'required|integer',
-      pricePerUnit: 'required|decimal'
+      firstName: 'required|string',
+      lastName: 'required|string',
+      gender: 'required|string',
+      personalEmail: 'required|email',
+      jobTitle: 'required|string',
+      workEmail: 'required|email'
     };
     validator(req.body, validationRule, {}, (err, status) => {
       if (!status) {
         res.status(412).send({
-          success: false,
-          message: 'Validation failed',
-          data: err
-        });
+        success: false,
+        message: 'Validation failed',
+        data: err
+       });
       } else {
         next();
       }
