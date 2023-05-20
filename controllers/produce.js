@@ -9,7 +9,7 @@ const schema = Joi.object({
   quality: Joi.string().required().empty(),
   peakSeason: Joi.string().required().empty(), 
   amountInStock: Joi.number().required().empty(), 
-  pricePerUnit: Joi.number().required().empty(),
+  pricePerUnit: Joi.string().required().empty(),
   unit: Joi.string().required().empty()
  });
 
