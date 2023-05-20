@@ -32,7 +32,7 @@ const saveProduce = (req, res, next) => {
       unit: 'required|string',
       peakSeason: 'required|string',
       amountInStock: 'required|integer',
-      pricePerUnit: 'required|decimal',
+      pricePerUnit: 'required|decimal'
     };
     validator(req.body, validationRule, {}, (err, status) => {
       if (!status) {
@@ -57,7 +57,7 @@ const saveProduce = (req, res, next) => {
       unit: 'required|string',
       peakSeason: 'required|string',
       amountInStock: 'required|integer',
-      pricePerUnit: 'required|decimal',
+      pricePerUnit: 'required|decimal'
     };
     validator(req.body, validationRule, {}, (err, status) => {
       if (!status) {
@@ -81,7 +81,7 @@ const saveProduce = (req, res, next) => {
       unit: 'required|string',
       peakSeason: 'required|string',
       amountInStock: 'required|integer',
-      pricePerUnit: 'required|decimal',
+      pricePerUnit: 'required|decimal'
     };
     validator(req.body, validationRule, {}, (err, status) => {
       if (!status) {
