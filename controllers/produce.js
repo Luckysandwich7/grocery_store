@@ -37,16 +37,15 @@ const createProduct = async (req, res) => {
   // #swagger.summary= Create a new Produce item
   // #swagger.description=Create a new Produce item from the Produce Collection
   const product = {
-    productName: req.body.productName,
     department: req.body.department,
     type: req.body.type,
     color: req.body.color,
     quality: req.body.quality,
     peakSeason: req.body.peakSeason,
     amountInStock: req.body.amountInStock,
-    pricePerUnit: req.body.pricePerUnit,
-    unit: req.body.unit
-    };
+    unit: req.body.unit,
+    productName: req.body.productName
+  };
   console.log(req.body);
   const response = await mongodb.getDb().db('grocery_store').collection('produce').insertOne(product);
   if (response.acknowledged) {
@@ -65,15 +64,14 @@ const updateProduct = async (req, res) => {
   };
   const productId = new ObjectId({ id: req.params.id });
   const product = {
-      productName: req.body.productName,
-      department: req.body.department,
-      type: req.body.type,
-      color: req.body.color,
-      quality: req.body.quality,
-      peakSeason: req.body.peakSeason,
-      amountInStock: req.body.amountInStock,
-      pricePerUnit: req.body.pricePerUnit,
-      unit: req.body.unit
+    department: req.body.department,
+    type: req.body.type,
+    color: req.body.color,
+    quality: req.body.quality,
+    peakSeason: req.body.peakSeason,
+    amountInStock: req.body.amountInStock,
+    unit: req.body.unit,
+    productName: req.body.productName
   };
   const response = await mongodb
     .getDb()
