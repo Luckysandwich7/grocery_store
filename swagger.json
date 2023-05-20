@@ -38,7 +38,7 @@
         "tags": [
           "User"
         ],
-        "description": "",
+        "description": "Login to use this database",
         "parameters": [],
         "responses": {}
       }
@@ -48,7 +48,7 @@
         "tags": [
           "User"
         ],
-        "description": "",
+        "description": "Logout to secure this database",
         "parameters": [],
         "responses": {}
       }
