@@ -9,10 +9,10 @@ routes.get('/', bakeryController.getAll);
 
 routes.get('/:id', bakeryController.getSingle);
 
-routes.post('/', isAuthenticated, validation.saveBakery, bakeryController.createContact);
+routes.post('/', isAuthenticated, validation.saveBakery, bakeryController.createBakeryItem);
 
-routes.put('/:id', isAuthenticated, validation.saveBakery, bakeryController.updateContact);
+routes.put('/:id', isAuthenticated, validation.saveBakery, bakeryController.updateBakeryItem);
 
-routes.delete('/:id', isAuthenticated, bakeryController.deleteContact);
+routes.delete('/:id', isAuthenticated, bakeryController.deleteBakeryItem);
 
 module.exports = routes;
