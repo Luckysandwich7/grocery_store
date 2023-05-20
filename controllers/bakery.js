@@ -6,9 +6,9 @@ const schema = Joi.object({
   type: Joi.string().required().empty(), 
   productName: Joi.string().required().empty(),
   price: Joi.number().required().empty(),
-  quantity: Joi.number().required().empty(), 
   allergens: Joi.string().required().empty(), 
-  flavor: Joi.string().required().empty()
+  servings: Joi.string().required().empty(),
+  count: Joi.number().required().empty()
  });
 
 const getAll = async (req, res) => {
@@ -36,9 +36,9 @@ const createBakeryItem = async (req, res) => {
       type: req.body.type,
       productName: req.body.productName,
       price: req.body.price,
-      quantity: req.body.quantity,
       allergens: req.body.allergens,
-      flavor: req.body.flavor
+      servings: req.body.servings, 
+      count: req.body.count
     };
     console.log(req.body);
 
@@ -60,9 +60,9 @@ const updateBakeryItem = async (req, res) => {
         type: req.body.type,
         productName: req.body.productName,
         price: req.body.price,
-        quantity: req.body.quantity,
         allergens: req.body.allergens,
-        flavor: req.body.flavor
+        servings: req.body.servings,
+        count: req.body.count,
       }
     };
     const response = await mongodb

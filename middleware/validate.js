@@ -49,15 +49,12 @@ const saveProduce = (req, res, next) => {
 
   const saveBakery = (req, res, next) => {
     const validationRule = {
-      productName: 'required|string',
-      department: 'required|string',
       type: 'required|string',
-      color: 'required|string',
-      quality: 'required|string',
-      unit: 'required|string',
-      peakSeason: 'required|string',
-      amountInStock: 'required|integer',
-      pricePerUnit: 'required|decimal'
+      productName: 'required|string',
+      price: 'required|decimal',
+      allergens: 'required|string',
+      servings: 'required|integer',
+      count: 'required|integer'
     };
     validator(req.body, validationRule, {}, (err, status) => {
       if (!status) {
