@@ -29,7 +29,7 @@ const saveEmployee = (req, res, next) => {
     gender: 'required|string',
     personalEmail: 'required|string',
     jobTitle: 'required|string',
-    workEmail: 'required|string'
+    workEmail: 'required|string',
   };
   validator(req.body, validationRule, {}, (err, status) => {
     if (!status) {
