@@ -739,9 +739,6 @@
             "schema": {
               "type": "object",
               "properties": {
-                "productName": {
-                  "example": "any"
-                },
                 "department": {
                   "example": "any"
                 },
@@ -760,10 +757,10 @@
                 "amountInStock": {
                   "example": "any"
                 },
-                "pricePerUnit": {
+                "unit": {
                   "example": "any"
                 },
-                "unit": {
+                "productName": {
                   "example": "any"
                 }
               }
