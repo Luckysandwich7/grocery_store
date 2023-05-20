@@ -5,10 +5,10 @@ const Joi = require('joi');
 const schema = Joi.object({ 
   type: Joi.string().required().empty(), 
   productName: Joi.string().required().empty(),
-  price: Joi.decimal().required().empty(),
-  calories: Joi.integer().required().empty(), 
-  quantity: Joi.integer().required().empty(), 
-  count: Joi.integer().required().empty()
+  price: Joi.number().required().empty(),
+  calories: Joi.number().required().empty(), 
+  quantity: Joi.number().required().empty(), 
+  count: Joi.number().required().empty()
  });
 
 const getAllDeli = async (req, res) => {

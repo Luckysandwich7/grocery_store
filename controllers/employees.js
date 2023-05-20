@@ -8,7 +8,7 @@ const getAll = async (req, res) => {
   // #swagger.summary=Get full employee list
   // #swagger.description=To get all Employee, Create multiple Employees
 
-  const result = await mongodb.getDb().db('cse341').collection('employees').find();
+  const result = await mongodb.getDb().db('grocery_store').collection('employees').find();
   result.toArray().then((lists) => {
     res.setHeader('Content-Type', 'application/json');
     res.status(200).json(lists);
@@ -24,7 +24,7 @@ const getSingle = async (req, res) => {
   }
   const userId = new ObjectId(req.params.id);
   console.log(userId);
-  const result = await mongodb.getDb().db('cse341').collection('employees').find({ _id: userId });
+  const result = await mongodb.getDb().db('grocery_store').collection('employees').find({ _id: userId });
   result.toArray().then((lists) => {
     res.setHeader('Content-Type', 'application/json');
     res.status(200).json(lists[0]);
@@ -45,7 +45,7 @@ const createEmployee = async (req, res) => {
   };
   console.log(req.body);
 
-  const response = await mongodb.getDb().db('cse341').collection('employees').insertOne(employee);
+  const response = await mongodb.getDb().db('grocery_store').collection('employees').insertOne(employee);
   if (response.acknowledged) {
     res.status(201).json(response);
   } else {
@@ -73,7 +73,7 @@ const updateEmployee = async (req, res) => {
   };
   const response = await mongodb
     .getDb()
-    .db('cse341')
+    .db('grocery_store')
     .collection('employees')
     .updateOne({ _id: userId }, employee);
   console.log(response);
@@ -94,7 +94,7 @@ const deleteEmployee = async (req, res) => {
   const userId = new ObjectId(req.params.id);
   const response = await mongodb
     .getDb()
-    .db('cse341')
+    .db('grocery_store')
     .collection('employees')
     .deleteOne({ _id: userId }, true);
   console.log(response);

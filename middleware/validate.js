@@ -45,6 +45,7 @@ const saveProduce = (req, res, next) => {
         next();
       }
     });
+  };
 
   const saveBakery = (req, res, next) => {
     const validationRule = {

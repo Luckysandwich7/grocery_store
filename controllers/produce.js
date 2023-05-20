@@ -8,8 +8,8 @@ const schema = Joi.object({
   color: Joi.string().required().empty(),
   quality: Joi.string().required().empty(),
   peakSeason: Joi.string().required().empty(), 
-  amountInStock: Joi.integer().required().empty(), 
-  pricePerUnit: Joi.decimal().required().empty(),
+  amountInStock: Joi.number().required().empty(), 
+  pricePerUnit: Joi.number().required().empty(),
   unit: Joi.string().required().empty()
  });
 
@@ -35,14 +35,12 @@ const getSingle = async (req, res) => {
         res.setHeader('Content-Type', 'application/json');
         res.status(200).json(lists[0]);
       });
-  } catch {err} {
-    res.status(500).json({err});
-  }
+  } catch (err) { res.status(500).json({ message: err.message }); }
 };
 
 const createProduct = async (req, res) => {
   try { 
-    //const { error } = schema.validate(req.body); if (error) { return res.status(400).json({ error: error.details[0].message }); }
+    const { error } = schema.validate(req.body); if (error) { return res.status(400).json({ error: error.details[0].message }); }
     const product = {
       productName: req.body.productName,
       department: req.body.department,

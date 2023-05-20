@@ -5,12 +5,12 @@ const doc = {
     title: 'Grocery Store API',
     description: 'Grocery Store API'
   },
-  //Need to create new Render and add host name
-  host: 'localhost:3000',
-  schemes: ['http'],
+
+  host: 'cte341-final-project.onrender.com',
+  schemes: ['https'],
   tags: [
     {
-      "name": "Employee",
+      "name": "Employees",
       "description": "Add or make edits to the Employee Collection in the Grocery Store Database"
     },
     {
