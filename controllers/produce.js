@@ -93,7 +93,8 @@ const deleteProduct = async (req, res) => {
   // #swagger.summary= Delete a Produce item
   // #swagger.description=Delete a Produce item from the Produce Collection
   if (!ObjectId.isValid(req.params.id)) {
-    res.status(400).json('Must use a valid product id to find produce') }
+    res.status(400).json('Must use a valid product id to find produce') 
+  };
   const productId = new ObjectId({ id: req.params.id });
   const response = await mongodb
       .getDb()
