@@ -10,7 +10,7 @@ const doc = {
   schemes: ['http'],
   tags: [
     {
-      "name": "Employee",
+      "name": "Employees",
       "description": "Add or make edits to the Employee Collection in the Grocery Store Database"
     },
     {
