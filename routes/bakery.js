@@ -9,9 +9,9 @@ routes.get('/', bakeryController.getAll);
 
 routes.get('/:id', bakeryController.getSingle);
 
-routes.post('/', isAuthenticated, validation.savePlanet, bakeryController.createContact);
+routes.post('/', isAuthenticated, validation.saveBakery, bakeryController.createContact);
 
-routes.put('/:id', isAuthenticated, validation.savePlanet, bakeryController.updateContact);
+routes.put('/:id', isAuthenticated, validation.saveBakery, bakeryController.updateContact);
 
 routes.delete('/:id', isAuthenticated, bakeryController.deleteContact);
 

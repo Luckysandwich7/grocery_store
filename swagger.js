@@ -2,16 +2,34 @@ const swaggerAutogen = require('swagger-autogen')();
 
 const doc = {
   info: {
-    title: 'My API',
+    title: 'Grocery Store API',
     description: 'Grocery Store API'
   },
   //Need to create new Render and add host name
-  host: '',
-  schemes: ['https']
+  host: 'localhost:3000',
+  schemes: ['http'],
+  tags: [
+    {
+      "name": "Employee",
+      "description": "Add or make edits to the Employee Collection in the Grocery Store Database"
+    },
+    {
+      "name": "Bakery",
+      "description": "Add or make edits to the Bakery Items in the Grocery Store Database"
+    },
+    {
+      "name": "Deli",
+      "description": "Add or make edits to the Deli Items in the Grocery Store Database"
+    },
+    {
+      "name": "Produce",
+      "description": "Add or make edits to the Bakery Items in the Grocery Store Database"
+    } 
+  ]
 };
 
-const outputFile = './swagger.json';
-const endpointsFiles = ['./routes/index.js'];
+const outputFile = "./swagger.json";
+const endpointsFiles = ["./routes/index.js"];
 
 // generate swagger.json
 swaggerAutogen(outputFile, endpointsFiles, doc);
