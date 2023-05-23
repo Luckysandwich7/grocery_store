@@ -24,15 +24,14 @@ const saveDeli = (req, res, next) => {
 
 const saveProduce = (req, res, next) => {
     const validationRule = {
-      productName: 'required|string',
       department: 'required|string',
       type: 'required|string',
       color: 'required|string',
       quality: 'required|string',
-      unit: 'required|string',
       peakSeason: 'required|string',
       amountInStock: 'required|integer',
-      pricePerUnit: 'required|decimal'
+      unit: 'required|string',
+      productName: 'required|string',
     };
     validator(req.body, validationRule, {}, (err, status) => {
       if (!status) {

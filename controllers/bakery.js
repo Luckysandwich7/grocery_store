@@ -1,15 +1,6 @@
 
 const mongodb = require('../db/connect.js');
 const ObjectId = require('mongodb').ObjectId;
-const Joi = require('joi');
-const schema = Joi.object({ 
-  type: Joi.string().required().empty(), 
-  productName: Joi.string().required().empty(),
-  price: Joi.number().required().empty(),
-  allergens: Joi.string().required().empty(), 
-  servings: Joi.string().required().empty(),
-  count: Joi.number().required().empty()
- });
 
 const getAll = async (req, res) => {
     const result = await mongodb.getDb().db('grocery_store').collection('bakery').find();
@@ -31,7 +22,6 @@ const getSingle = async (req, res) => {
   };
 
 const createBakeryItem = async (req, res) => {
-  try { const { error } = schema.validate(req.body); if (error) { return res.status(400).json({ error: error.details[0].message }); }
     const bakeryItem = {
       type: req.body.type,
       productName: req.body.productName,
@@ -48,7 +38,6 @@ const createBakeryItem = async (req, res) => {
     } else {
       res.status(500).json(response.error || 'Some error occurred while creating the item.');
     }
-  } catch (err) { res.status(500).json({ message: err.message }); }
 };
 
 const updateBakeryItem = async (req, res) => {

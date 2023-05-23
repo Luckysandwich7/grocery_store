@@ -1,5 +1,5 @@
 {
-  "name": "REST-practice",
+  "name": "best-practice",
   "version": "1.0.0",
   "description": "Simple Server to display made up contacts",
   "main": "server.js",

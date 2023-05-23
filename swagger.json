@@ -30,7 +30,7 @@
     }
   ],
   "schemes": [
-    "http"
+    "https"
   ],
   "paths": {
     "/login": {
@@ -38,7 +38,7 @@
         "tags": [
           "User"
         ],
-        "description": "",
+        "description": "Login to use this database",
         "parameters": [],
         "responses": {}
       }
@@ -48,7 +48,7 @@
         "tags": [
           "User"
         ],
-        "description": "",
+        "description": "Logout to secure this database",
         "parameters": [],
         "responses": {}
       }
@@ -616,7 +616,7 @@
         "tags": [
           "Produce"
         ],
-        "description": "",
+        "description": "Get all Produce from the Produce Collection",
         "produces": [
           "application/json"
         ],
@@ -634,7 +634,7 @@
         "tags": [
           "Produce"
         ],
-        "description": "",
+        "description": "Create a new Produce item from the Produce Collection",
         "parameters": [
           {
             "name": "body",
@@ -697,7 +697,7 @@
         "tags": [
           "Produce"
         ],
-        "description": "",
+        "description": "Get a Produce item from the Produce Collection",
         "produces": [
           "application/json"
         ],
@@ -725,7 +725,7 @@
         "tags": [
           "Produce"
         ],
-        "description": "",
+        "description": "Modify a Produce item from the Produce Collection",
         "parameters": [
           {
             "name": "id",
@@ -739,9 +739,6 @@
             "schema": {
               "type": "object",
               "properties": {
-                "productName": {
-                  "example": "any"
-                },
                 "department": {
                   "example": "any"
                 },
@@ -760,10 +757,10 @@
                 "amountInStock": {
                   "example": "any"
                 },
-                "pricePerUnit": {
+                "unit": {
                   "example": "any"
                 },
-                "unit": {
+                "productName": {
                   "example": "any"
                 }
               }
@@ -792,7 +789,7 @@
         "tags": [
           "Produce"
         ],
-        "description": "",
+        "description": "Delete a Produce item from the Produce Collection",
         "parameters": [
           {
             "name": "id",
