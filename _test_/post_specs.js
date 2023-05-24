@@ -1,7 +1,7 @@
 const server = require("../server");
 const supertest = require("supertest");
 const { expect } = require("@jest/globals");
-const request = supertest(app);
+const request = supertest(server);
 
 describe("Test Handlers", () => {
   test("responds to post /employees", async () => {
@@ -30,12 +30,12 @@ describe("Test Handlers", () => {
   });
   test("responds to post /deli", async () => {
     const res = await request.post("/deli").send({
-      type: "",
-      productName: "",
-      price: "",
-      calories: "",
-      quantity: "",
-      count: "",
+      type: "sandwich",
+      productName: "Bobs Burgers",
+      price: "9.99",
+      calories: "1000",
+      quantity: "10",
+      count: "40",
     });
     expect(res.header["content-type"]).toBe("application/json; charset=utf-8");
     expect(res.statusCode).toBe(201);
