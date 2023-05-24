@@ -50,7 +50,7 @@ const saveProduce = (req, res, next) => {
     const validationRule = {
       type: 'required|string',
       productName: 'required|string',
-      price: 'required|decimal',
+      price: 'required|string',
       allergens: 'required|string',
       servings: 'required|integer',
       count: 'required|integer'
