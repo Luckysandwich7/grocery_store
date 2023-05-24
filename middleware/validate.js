@@ -5,7 +5,7 @@ const saveDeli = (req, res, next) => {
     type: 'required|string',
     productName: 'required|string',
     price: 'required|string',
-    calories: 'required|decimal',
+    calories: 'required|integer',
     quantity: 'required|integer',
     count: 'integer'
   };

@@ -4,6 +4,7 @@ const mongodb = require('../db/connect.js');
 const ObjectId = require('mongodb').ObjectId;
 
 const getAll = async (req, res) => {
+  try {
   // #swagger.tags=['Employee']
   // #swagger.summary=Get full employee list
   // #swagger.description=To get all Employee, Create multiple Employees
@@ -13,9 +14,13 @@ const getAll = async (req, res) => {
     res.setHeader('Content-Type', 'application/json');
     res.status(200).json(lists);
   });
+  } catch (err) {
+    res.status(500).json({message: err.message});
+  }
 };
 
 const getSingle = async (req, res) => {
+  try {
   // #swagger.tags=['Employee']
   // #swagger.summary=Get employee by Id
   // #swagger.description=To get an Employee by Id, Create an Employee
@@ -29,6 +34,9 @@ const getSingle = async (req, res) => {
     res.setHeader('Content-Type', 'application/json');
     res.status(200).json(lists[0]);
   });
+  } catch (err) {
+    res.status(500).json({message: err.message});
+  }
 };
 
 const createEmployee = async (req, res) => {
