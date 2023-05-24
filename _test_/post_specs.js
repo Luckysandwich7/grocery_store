@@ -42,14 +42,14 @@ describe("Test Handlers", () => {
   });
   test("responds to post /produce", async () => {
     const res = await request.post("/produce").send({
-      department: "",
-      type: "",
-      color: "",
-      quality: "",
-      peakSeason: "",
-      amountInStock: "",
-      unit: "",
-      productName: "",
+      department: "produce",
+      type: "greens",
+      color: "yellow",
+      quality: "superior",
+      peakSeason: "June",
+      amountInStock: "20",
+      unit: "bunch",
+      productName: "Yellow Bell Pepper",
     });
     expect(res.header["content-type"]).toBe("application/json; charset=utf-8");
     expect(res.statusCode).toBe(201);
