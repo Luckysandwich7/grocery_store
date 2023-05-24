@@ -5,7 +5,7 @@ const saveDeli = (req, res, next) => {
     type: 'required|string',
     productName: 'required|string',
     price: 'required|string',
-    calories: 'required|decimal',
+    calories: 'required|integer',
     quantity: 'required|integer',
     count: 'integer'
   };
@@ -50,7 +50,7 @@ const saveProduce = (req, res, next) => {
     const validationRule = {
       type: 'required|string',
       productName: 'required|string',
-      price: 'required|decimal',
+      price: 'required|string',
       allergens: 'required|string',
       servings: 'required|integer',
       count: 'required|integer'
