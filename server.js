@@ -34,7 +34,8 @@ app
     );
     next();
   })
-  
+  app.use(cors({ methods: ['GET', 'POST', 'DELETE', 'UPDATE', 'PUT', 'PATCH']}))
+  app.use(cors({ origin: '*'}))
 
   passport.use(new GitHubStrategy({
     clientID: process.env.GITHUB_CLIENT_ID,
@@ -79,8 +80,7 @@ app.get('/github/callback', passport.authenticate('github', {
       return res.status(202).send({ error: 'Authentication succeeded' });    
     });
 });
-app.use(cors({ methods: ['GET', 'POST', 'DELETE', 'UPDATE', 'PUT', 'PATCH']}))
-app.use(cors({ origin: '*'}))
+
 mongodb.initDb((err) => {
   if (err) {
     console.log(err);
