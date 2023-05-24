@@ -9,10 +9,6 @@
   "basePath": "/",
   "tags": [
     {
-      "name": "User",
-      "description": "Login or Logout of your account"
-    },
-    {
       "name": "Employees",
       "description": "Add or make edits to the Employee Collection in the Grocery Store Database"
     },
@@ -35,29 +31,20 @@
   "paths": {
     "/login": {
       "get": {
-        "tags": [
-          "User"
-        ],
-        "description": "Login to use this database",
+        "description": "",
         "parameters": [],
         "responses": {}
       }
     },
     "/logout": {
       "get": {
-        "tags": [
-          "User"
-        ],
-        "description": "Logout to secure this database",
+        "description": "",
         "parameters": [],
         "responses": {}
       }
     },
     "/api-docs": {
       "get": {
-        "tags": [
-          "User"
-        ],
         "description": "",
         "parameters": [],
         "responses": {}
@@ -68,7 +55,8 @@
         "tags": [
           "Bakery"
         ],
-        "description": "",
+        "summary": "Get full bakery item list",
+        "description": "To get all bakery item, Create multiple bakery items",
         "produces": [
           "application/json"
         ],
@@ -76,6 +64,9 @@
         "responses": {
           "200": {
             "description": "OK"
+          },
+          "500": {
+            "description": "Internal Server Error"
           }
         }
       },
@@ -83,7 +74,8 @@
         "tags": [
           "Bakery"
         ],
-        "description": "",
+        "summary": "Create new bakery item",
+        "description": "Adds a new bakery item to the database",
         "parameters": [
           {
             "name": "body",
@@ -117,9 +109,6 @@
           "201": {
             "description": "Created"
           },
-          "400": {
-            "description": "Bad Request"
-          },
           "401": {
             "description": "Unauthorized"
           },
@@ -137,7 +126,8 @@
         "tags": [
           "Bakery"
         ],
-        "description": "",
+        "summary": "Get bakery item by Id",
+        "description": "To get a bakery item by Id, Create a bakery item",
         "produces": [
           "application/json"
         ],
@@ -155,6 +145,9 @@
           },
           "400": {
             "description": "Bad Request"
+          },
+          "500": {
+            "description": "Internal Server Error"
           }
         }
       },
@@ -162,7 +155,8 @@
         "tags": [
           "Bakery"
         ],
-        "description": "",
+        "summary": "Update bakery item by Id",
+        "description": "To update a bakery item by Id, create a bakery item",
         "parameters": [
           {
             "name": "id",
@@ -220,7 +214,8 @@
         "tags": [
           "Bakery"
         ],
-        "description": "",
+        "summary": "Deletes bakery item by Id",
+        "description": "To delete a bakery item by Id, create a bakery item",
         "parameters": [
           {
             "name": "id",
@@ -248,7 +243,7 @@
     "/employees/": {
       "get": {
         "tags": [
-          "Employees"
+          "Employee"
         ],
         "summary": "Get full employee list",
         "description": "To get all Employee, Create multiple Employees",
@@ -259,12 +254,15 @@
         "responses": {
           "200": {
             "description": "OK"
+          },
+          "500": {
+            "description": "Internal Server Error"
           }
         }
       },
       "post": {
         "tags": [
-          "Employees"
+          "Employee"
         ],
         "summary": "Create new Employee",
         "description": "Adds a new Employee to the database",
@@ -316,7 +314,7 @@
     "/employees/{id}": {
       "get": {
         "tags": [
-          "Employees"
+          "Employee"
         ],
         "summary": "Get employee by Id",
         "description": "To get an Employee by Id, Create an Employee",
@@ -337,12 +335,15 @@
           },
           "400": {
             "description": "Bad Request"
+          },
+          "500": {
+            "description": "Internal Server Error"
           }
         }
       },
       "put": {
         "tags": [
-          "Employees"
+          "Employee"
         ],
         "summary": "Update employee by Id",
         "description": "To update an Employee by Id, create an Employee",
@@ -401,7 +402,7 @@
       },
       "delete": {
         "tags": [
-          "Employees"
+          "Employee"
         ],
         "summary": "Deletes employee by Id",
         "description": "To delete an Employee by Id, create an Employee",
@@ -434,7 +435,8 @@
         "tags": [
           "Deli"
         ],
-        "description": "",
+        "summary": "Get all deli items",
+        "description": "To get a deli list, Create a deli item",
         "produces": [
           "application/json"
         ],
@@ -442,6 +444,9 @@
         "responses": {
           "200": {
             "description": "OK"
+          },
+          "500": {
+            "description": "Internal Server Error"
           }
         }
       },
@@ -449,7 +454,8 @@
         "tags": [
           "Deli"
         ],
-        "description": "",
+        "summary": "Create a deli item",
+        "description": "Create a new deli item, Id is autogenerated",
         "parameters": [
           {
             "name": "body",
@@ -483,9 +489,6 @@
           "201": {
             "description": "Created"
           },
-          "400": {
-            "description": "Bad Request"
-          },
           "401": {
             "description": "Unauthorized"
           },
@@ -503,7 +506,8 @@
         "tags": [
           "Deli"
         ],
-        "description": "",
+        "summary": "Get deli item by Id",
+        "description": "To get a deli item by Id, Create a deli item",
         "produces": [
           "application/json"
         ],
@@ -521,6 +525,9 @@
           },
           "400": {
             "description": "Bad Request"
+          },
+          "500": {
+            "description": "Internal Server Error"
           }
         }
       },
@@ -528,7 +535,8 @@
         "tags": [
           "Deli"
         ],
-        "description": "",
+        "summary": "Update a deli item by Id",
+        "description": "Update an excisting deli item by Id",
         "parameters": [
           {
             "name": "id",
@@ -586,7 +594,8 @@
         "tags": [
           "Deli"
         ],
-        "description": "",
+        "summary": "Delete a deli item by Id",
+        "description": "Delete an excisting deli item by Id",
         "parameters": [
           {
             "name": "id",
@@ -616,7 +625,8 @@
         "tags": [
           "Produce"
         ],
-        "description": "Get all Produce from the Produce Collection",
+        "summary": "Get full Produce list",
+        "description": "Get all Produce from the Produce Collection, Creates multiple Produce",
         "produces": [
           "application/json"
         ],
@@ -634,6 +644,7 @@
         "tags": [
           "Produce"
         ],
+        "summary": "Create a new Produce item",
         "description": "Create a new Produce item from the Produce Collection",
         "parameters": [
           {
@@ -642,9 +653,6 @@
             "schema": {
               "type": "object",
               "properties": {
-                "productName": {
-                  "example": "any"
-                },
                 "department": {
                   "example": "any"
                 },
@@ -663,10 +671,10 @@
                 "amountInStock": {
                   "example": "any"
                 },
-                "pricePerUnit": {
+                "unit": {
                   "example": "any"
                 },
-                "unit": {
+                "productName": {
                   "example": "any"
                 }
               }
@@ -676,9 +684,6 @@
         "responses": {
           "201": {
             "description": "Created"
-          },
-          "400": {
-            "description": "Bad Request"
           },
           "401": {
             "description": "Unauthorized"
@@ -697,7 +702,8 @@
         "tags": [
           "Produce"
         ],
-        "description": "Get a Produce item from the Produce Collection",
+        "summary": "Get Single Produce list",
+        "description": "Get a Single Produce from the Produce Collection",
         "produces": [
           "application/json"
         ],
@@ -725,6 +731,7 @@
         "tags": [
           "Produce"
         ],
+        "summary": "Modify a Produce item",
         "description": "Modify a Produce item from the Produce Collection",
         "parameters": [
           {
@@ -789,6 +796,7 @@
         "tags": [
           "Produce"
         ],
+        "summary": "Delete a Produce item",
         "description": "Delete a Produce item from the Produce Collection",
         "parameters": [
           {
