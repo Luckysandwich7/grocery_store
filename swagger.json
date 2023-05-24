@@ -243,7 +243,7 @@
     "/employees/": {
       "get": {
         "tags": [
-          "Employee"
+          "Employees"
         ],
         "summary": "Get full employee list",
         "description": "To get all Employee, Create multiple Employees",
@@ -262,7 +262,7 @@
       },
       "post": {
         "tags": [
-          "Employee"
+          "Employees"
         ],
         "summary": "Create new Employee",
         "description": "Adds a new Employee to the database",
@@ -314,7 +314,7 @@
     "/employees/{id}": {
       "get": {
         "tags": [
-          "Employee"
+          "Employees"
         ],
         "summary": "Get employee by Id",
         "description": "To get an Employee by Id, Create an Employee",
@@ -343,7 +343,7 @@
       },
       "put": {
         "tags": [
-          "Employee"
+          "Employees"
         ],
         "summary": "Update employee by Id",
         "description": "To update an Employee by Id, create an Employee",
@@ -402,7 +402,7 @@
       },
       "delete": {
         "tags": [
-          "Employee"
+          "Employees"
         ],
         "summary": "Deletes employee by Id",
         "description": "To delete an Employee by Id, create an Employee",
