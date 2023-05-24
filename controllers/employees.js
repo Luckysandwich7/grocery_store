@@ -75,7 +75,7 @@ const updateEmployee = async (req, res) => {
     .getDb()
     .db('cse341')
     .collection('employees')
-    .updateOne({ _id: userId }, employee);
+    .replaceOne({ _id: userId }, employee);
   console.log(response);
   if (response.modifiedCount > 0) {
     res.status(204).send('Response Received');
