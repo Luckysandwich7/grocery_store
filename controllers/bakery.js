@@ -3,6 +3,7 @@ const mongodb = require('../db/connect.js');
 const ObjectId = require('mongodb').ObjectId;
 
 const getAll = async (req, res) => {
+  try {
   // #swagger.tags=['Bakery']
   // #swagger.summary=Get full bakery item list
   // #swagger.description=To get all bakery item, Create multiple bakery items
@@ -11,9 +12,13 @@ const getAll = async (req, res) => {
       res.setHeader('Content-Type', 'application/json');
       res.status(200).json(lists);
     });
+  } catch (err) {
+    res.status(500).json({message: err.message});
+  }
   };
 
 const getSingle = async (req, res) => {
+  try {
     // #swagger.tags=['Bakery']
   // #swagger.summary=Get bakery item by Id
   // #swagger.description=To get a bakery item by Id, Create a bakery item
@@ -25,6 +30,9 @@ const getSingle = async (req, res) => {
       res.setHeader('Content-Type', 'application/json');
       res.status(200).json(lists[0]);
     });
+  } catch (err) {
+    res.status(500).json({message: err.message});
+  }
   };
 
 const createBakeryItem = async (req, res) => {
