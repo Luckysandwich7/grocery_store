@@ -90,7 +90,7 @@ const deleteBakeryItem = async (req, res) => {
       .getDb()
       .db('grocery_store')
       .collection('bakery')
-      .remove({ _id: userId }, true);
+      .deleteOne({ _id: userId }, true);
     console.log(response);
     if (response.deletedCount > 0) {
       res.status(200).send();
