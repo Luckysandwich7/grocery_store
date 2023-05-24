@@ -55,7 +55,7 @@ const updateBakeryItem = async (req, res) => {
   // #swagger.description=To update a bakery item by Id, create a bakery item
   if (!ObjectId.isValid(req.params.id)) {
     res.status(400).json('Must use a valid bakery item id to find item') }
-    const userId = new ObjectId(req.params.id);
+    const userId = new ObjectId({id:req.params.id});
     const bakeryItem = {
       $set: {
         type: req.body.type,
@@ -85,7 +85,7 @@ const deleteBakeryItem = async (req, res) => {
   // #swagger.description=To delete a bakery item by Id, create a bakery item
   if (!ObjectId.isValid(req.params.id)) {
     res.status(400).json('Must use a valid bakery item id to find bakery item') }
-    const userId = new ObjectId(req.params.id);
+    const userId = new ObjectId({id:req.params.id});
     const response = await mongodb
       .getDb()
       .db('grocery_store')
