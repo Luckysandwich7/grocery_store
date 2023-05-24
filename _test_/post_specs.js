@@ -6,24 +6,24 @@ const request = supertest(app);
 describe("Test Handlers", () => {
   test("responds to post /employees", async () => {
     const res = await request.post("/employees").send({
-      firstName: "",
-      lastName: "",
-      gender: "",
-      personalEmail: "",
-      jobTitle: "",
-      workEmail: "",
+      firstName: "Shawn",
+      lastName: " Porter",
+      gender: "male",
+      personalEmail: "sp@test.edu",
+      jobTitle: "programmer extraordinaire",
+      workEmail: "sp@tester",
     });
     expect(res.header["content-type"]).toBe("application/json; charset=utf-8");
     expect(res.statusCode).toBe(201);
   });
   test("responds to post /bakery", async () => {
     const res = await request.post("/bakery").send({
-      type: "",
-      productName: "",
-      price: "",
-      allergens: "",
-      servings: "",
-      count: "",
+      type: "cinnemon rolls",
+      productName: "rolls",
+      price: "3.00",
+      allergens: "gluton",
+      servings: "4",
+      count: "8",
     });
     expect(res.header["content-type"]).toBe("application/json; charset=utf-8");
     expect(res.statusCode).toBe(201);
