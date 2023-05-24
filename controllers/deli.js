@@ -61,7 +61,7 @@ const updateDeli = async (req, res) => {
       .getDb()
       .db('grocery_store')
       .collection('deli')
-      .updateOne({ _id: deliId }, deli);
+      .replaceOne({ _id: deliId }, deli);
     console.log(response);
     if (response.modifiedCount > 0) {
       res.status(204).send();
