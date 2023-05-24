@@ -31,6 +31,9 @@
   "paths": {
     "/login": {
       "get": {
+        "tags": [
+          "User"
+        ],
         "description": "",
         "parameters": [],
         "responses": {}
@@ -38,6 +41,9 @@
     },
     "/logout": {
       "get": {
+        "tags": [
+          "User"
+        ],
         "description": "",
         "parameters": [],
         "responses": {}
@@ -45,7 +51,10 @@
     },
     "/api-docs": {
       "get": {
-        "description": "",
+        "tags": [
+          "User"
+        ],
+        "description": "Use the api-doc to GET, POST, PUT, or DELETE",
         "parameters": [],
         "responses": {}
       }
