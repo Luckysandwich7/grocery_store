@@ -57,14 +57,12 @@ const updateBakeryItem = async (req, res) => {
     res.status(400).json('Must use a valid bakery item id to find item') }
     const bakeryId = new ObjectId({ id:req.params.id });
     const bakeryItem = {
-      $set: {
         type: req.body.type,
         productName: req.body.productName,
         price: req.body.price,
         allergens: req.body.allergens,
         servings: req.body.servings,
         count: req.body.count,
-      }
     };
     const response = await mongodb
       .getDb()
