@@ -9,6 +9,10 @@
   "basePath": "/",
   "tags": [
     {
+      "name": "User",
+      "description": "Login or Logout of your account"
+    },
+    {
       "name": "Employees",
       "description": "Add or make edits to the Employee Collection in the Grocery Store Database"
     },
@@ -31,6 +35,9 @@
   "paths": {
     "/login": {
       "get": {
+        "tags": [
+          "User"
+        ],
         "description": "",
         "parameters": [],
         "responses": {}
@@ -38,6 +45,9 @@
     },
     "/logout": {
       "get": {
+        "tags": [
+          "User"
+        ],
         "description": "",
         "parameters": [],
         "responses": {}
@@ -45,7 +55,10 @@
     },
     "/api-docs": {
       "get": {
-        "description": "",
+        "tags": [
+          "User"
+        ],
+        "description": "Use the api-doc to GET, POST, PUT, or DELETE",
         "parameters": [],
         "responses": {}
       }
