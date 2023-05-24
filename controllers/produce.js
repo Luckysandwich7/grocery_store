@@ -61,7 +61,7 @@ const updateProduct = async (req, res) => {
   // #swagger.description=Modify a Produce item from the Produce Collection
   if (!ObjectId.isValid(req.params.id)) {
     res.status(400).json('Must use a valid product id to find produce') 
-  };
+  }
   const productId = new ObjectId({ id: req.params.id });
   const product = {
     department: req.body.department,
@@ -92,7 +92,7 @@ const deleteProduct = async (req, res) => {
   // #swagger.description=Delete a Produce item from the Produce Collection
   if (!ObjectId.isValid(req.params.id)) {
     res.status(400).json('Must use a valid product id to find produce') 
-  };
+  }
   const productId = new ObjectId({ id: req.params.id });
   const response = await mongodb
       .getDb()

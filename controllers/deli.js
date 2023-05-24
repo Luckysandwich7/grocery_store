@@ -48,7 +48,7 @@ const createDeli = async (req, res) => {
 const updateDeli = async (req, res) => {
   if (!ObjectId.isValid(req.params.id)) {
     res.status(400).json('Must use a valid deli id to find product') }
-    const deliId = new ObjectId(req.params.id);
+    const deliId = new ObjectId({ id: req.params.id });
     const deli = {
         type: req.body.type,
         productName: req.body.productName,
@@ -73,7 +73,7 @@ const updateDeli = async (req, res) => {
 const deleteDeli = async (req, res) => {
   if (!ObjectId.isValid(req.params.id)) {
     res.status(400).json('Must use a valid deli id to find deli item') }
-    const deliId = new ObjectId(req.params.id);
+    const deliId = new ObjectId({ id: req.params.id});
     const response = await mongodb
       .getDb()
       .db('grocery_store')
