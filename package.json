@@ -4,7 +4,7 @@
   "description": "Simple Server to display made up contacts",
   "main": "server.js",
   "scripts": {
-    "test": "node node_modules/.bin/jest --coverage",
+    "test": "node --experimental-vm-modules node_modules/jest/bin/jest.js --collectCoverage",
     "start": "node server.js",
     "devStart": "nodemon server.js",
     "lint": "eslint .",
