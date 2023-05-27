@@ -37,16 +37,24 @@ app
   app.use(cors({ methods: ['GET', 'POST', 'DELETE', 'UPDATE', 'PUT', 'PATCH']}))
   app.use(cors({ origin: '*'}))
 
-  passport.use(new GitHubStrategy({
-    clientID: process.env.GITHUB_CLIENT_ID,
-    clientSecret: process.env.GITHUB_CLIENT_SECRET,
-    callbackURL: process.env.CALLBACK_URL
-  },
-  function(accessToken, refreshToken, profile, done) {
-    //User.findorCreate({githubId: profile.id }, function (err, user) {
-      return done(null, profile);
-    //}));
-  }
+  // added 5/26/23 
+function userReportHandler(req, res) {
+    res.render('userreport', { title: 'Users Report' });
+}
+
+app.get('/users/report', userReportHandler);
+// end 5/26 modification
+
+passport.use(new GitHubStrategy({
+  clientID: process.env.GITHUB_CLIENT_ID,
+  clientSecret: process.env.GITHUB_CLIENT_SECRET,
+  callbackURL: process.env.CALLBACK_URL
+},
+function(accessToken, refreshToken, profile, done) {
+  //User.findorCreate({githubId: profile.id }, function (err, user) {
+    return done(null, profile);
+  //}));
+}
 ));
 
 passport.serializeUser((user, done) => {
