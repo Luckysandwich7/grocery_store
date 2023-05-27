@@ -1,4 +1,6 @@
 const express = require('express');
+const path = require('path');
+const cookieParser = require('cookie-parser');
 const bodyParser = require('body-parser');
 const mongodb = require('./db/connect.js');
 const passport = require('passport');
@@ -73,6 +75,14 @@ app.get('/github/callback', passport.authenticate('github', {
     res.redirect('/');
   });
 
+app.use(bodyParser.json());
+app.use(bodyParser.urlencoded({ extended: false }));
+app.use(cookieParser())
+
+app.use('/', users);
+
+module.exports = app;
+
 mongodb.initDb((err) => {
   if (err) {
     console.log(err);
@@ -81,3 +91,4 @@ mongodb.initDb((err) => {
     console.log(`Connected to DB and listening on ${port}`);
   }
 });
+
