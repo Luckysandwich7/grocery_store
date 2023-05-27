@@ -23,7 +23,7 @@ app
   // allow passport to use "express-session"
   .use("/", require("./routes/index.js"))
   .use((req, res, next) => {
-    res.setHeader("Access-Controll-Allow-Origin", "*");
+    res.setHeader("Access-Controll-Allow-Origin", "*")
     res.setHeader(
       "Access-Control-Allow-Headers",
       "Origin, X-Requested-With, Content-Type, Accept, Z-Key, Authorization"
@@ -39,7 +39,7 @@ app
 
   // added 5/26/23 
 function userReportHandler(req, res) {
-    res.render('userreport', { title: 'Users Report' });
+  res.render('userreport', { title: 'Users Report' });
 }
 
 app.get('/users/report', userReportHandler);
