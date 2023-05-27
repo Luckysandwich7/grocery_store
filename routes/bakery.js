@@ -1,20 +1,18 @@
 const express = require('express');
 const routes = express.Router();
 
-const planetsController = require('../controllers/planets');
+const bakeryController = require('../controllers/bakery');
 const validation = require('../middleware/validate');
 const { isAuthenticated } = require("../middleware/authenticate");
 
-routes.get('/', planetsController.getAll);
+routes.get('/', bakeryController.getAll);
 
-routes.get('/:id', planetsController.getSingle);
+routes.get('/:id', bakeryController.getSingle);
 
-routes.post('/', isAuthenticated, validation.savePlanet, planetsController.createContact);
+routes.post('/', isAuthenticated, validation.saveBakery, bakeryController.createBakeryItem);
 
-routes.put('/:id', isAuthenticated, validation.savePlanet, planetsController.updateContact);
+routes.put('/:id', isAuthenticated, validation.saveBakery, bakeryController.updateBakeryItem);
 
-routes.delete('/:id', isAuthenticated, planetsController.deleteContact);
+routes.delete('/:id', isAuthenticated, bakeryController.deleteBakeryItem);
 
 module.exports = routes;
-
-//Sheyla's assignment

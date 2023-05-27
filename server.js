@@ -21,6 +21,7 @@ app
   // init pasport on every route call
   .use(passport.session())
   // allow passport to use "express-session"
+  .use("/", require("./routes/index.js"))
   .use((req, res, next) => {
     res.setHeader("Access-Controll-Allow-Origin", "*");
     res.setHeader(
@@ -33,9 +34,8 @@ app
     );
     next();
   })
-  .use(cors({ methods: ['GET', 'POST', 'DELETE', 'UPDATE', 'PUT', 'PATCH']}))
-  .use(cors({ origin: '*'}))
-  .use("/", require("./routes/index.js"));
+  app.use(cors({ methods: ['GET', 'POST', 'DELETE', 'UPDATE', 'PUT', 'PATCH']}))
+  app.use(cors({ origin: '*'}))
 
   passport.use(new GitHubStrategy({
     clientID: process.env.GITHUB_CLIENT_ID,

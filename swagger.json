@@ -1,26 +1,75 @@
 {
   "swagger": "2.0",
   "info": {
-    "title": "My API",
-    "description": "Star Wars API",
+    "title": "Grocery Store API",
+    "description": "Grocery Store API",
     "version": "1.0.0"
   },
-  "host": "ryanalvordcit341.onrender.com",
+  "host": "cte341-final-project.onrender.com",
   "basePath": "/",
+  "tags": [
+    {
+      "name": "User",
+      "description": "Login or Logout of your account"
+    },
+    {
+      "name": "Employees",
+      "description": "Add or make edits to the Employee Collection in the Grocery Store Database"
+    },
+    {
+      "name": "Bakery",
+      "description": "Add or make edits to the Bakery Items in the Grocery Store Database"
+    },
+    {
+      "name": "Deli",
+      "description": "Add or make edits to the Deli Items in the Grocery Store Database"
+    },
+    {
+      "name": "Produce",
+      "description": "Add or make edits to the Bakery Items in the Grocery Store Database"
+    }
+  ],
   "schemes": [
     "https"
   ],
   "paths": {
-    "/api-docs": {
+    "/login": {
       "get": {
+        "tags": [
+          "User"
+        ],
         "description": "",
         "parameters": [],
         "responses": {}
       }
     },
-    "/characters/": {
+    "/logout": {
       "get": {
+        "tags": [
+          "User"
+        ],
         "description": "",
+        "parameters": [],
+        "responses": {}
+      }
+    },
+    "/api-docs": {
+      "get": {
+        "tags": [
+          "User"
+        ],
+        "description": "Use the api-doc to GET, POST, PUT, or DELETE",
+        "parameters": [],
+        "responses": {}
+      }
+    },
+    "/bakery/": {
+      "get": {
+        "tags": [
+          "Bakery"
+        ],
+        "summary": "Get full bakery item list",
+        "description": "To get all bakery item, Create multiple bakery items",
         "produces": [
           "application/json"
         ],
@@ -28,11 +77,208 @@
         "responses": {
           "200": {
             "description": "OK"
+          },
+          "500": {
+            "description": "Internal Server Error"
           }
         }
       },
       "post": {
-        "description": "",
+        "tags": [
+          "Bakery"
+        ],
+        "summary": "Create new bakery item",
+        "description": "Adds a new bakery item to the database",
+        "parameters": [
+          {
+            "name": "body",
+            "in": "body",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "type": {
+                  "example": "any"
+                },
+                "productName": {
+                  "example": "any"
+                },
+                "price": {
+                  "example": "any"
+                },
+                "allergens": {
+                  "example": "any"
+                },
+                "servings": {
+                  "example": "any"
+                },
+                "count": {
+                  "example": "any"
+                }
+              }
+            }
+          }
+        ],
+        "responses": {
+          "201": {
+            "description": "Created"
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "412": {
+            "description": "Precondition Failed"
+          },
+          "500": {
+            "description": "Internal Server Error"
+          }
+        }
+      }
+    },
+    "/bakery/{id}": {
+      "get": {
+        "tags": [
+          "Bakery"
+        ],
+        "summary": "Get bakery item by Id",
+        "description": "To get a bakery item by Id, Create a bakery item",
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          },
+          "400": {
+            "description": "Bad Request"
+          },
+          "500": {
+            "description": "Internal Server Error"
+          }
+        }
+      },
+      "put": {
+        "tags": [
+          "Bakery"
+        ],
+        "summary": "Update bakery item by Id",
+        "description": "To update a bakery item by Id, create a bakery item",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "body",
+            "in": "body",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "type": {
+                  "example": "any"
+                },
+                "productName": {
+                  "example": "any"
+                },
+                "price": {
+                  "example": "any"
+                },
+                "allergens": {
+                  "example": "any"
+                },
+                "servings": {
+                  "example": "any"
+                },
+                "count": {
+                  "example": "any"
+                }
+              }
+            }
+          }
+        ],
+        "responses": {
+          "204": {
+            "description": "No Content"
+          },
+          "400": {
+            "description": "Bad Request"
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "412": {
+            "description": "Precondition Failed"
+          },
+          "500": {
+            "description": "Internal Server Error"
+          }
+        }
+      },
+      "delete": {
+        "tags": [
+          "Bakery"
+        ],
+        "summary": "Deletes bakery item by Id",
+        "description": "To delete a bakery item by Id, create a bakery item",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          },
+          "400": {
+            "description": "Bad Request"
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "500": {
+            "description": "Internal Server Error"
+          }
+        }
+      }
+    },
+    "/employees/": {
+      "get": {
+        "tags": [
+          "Employees"
+        ],
+        "summary": "Get full employee list",
+        "description": "To get all Employee, Create multiple Employees",
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": "OK"
+          },
+          "500": {
+            "description": "Internal Server Error"
+          }
+        }
+      },
+      "post": {
+        "tags": [
+          "Employees"
+        ],
+        "summary": "Create new Employee",
+        "description": "Adds a new Employee to the database",
         "parameters": [
           {
             "name": "body",
@@ -49,13 +295,13 @@
                 "gender": {
                   "example": "any"
                 },
-                "race": {
+                "personalEmail": {
                   "example": "any"
                 },
-                "vehicle": {
+                "jobTitle": {
                   "example": "any"
                 },
-                "affiliation": {
+                "workEmail": {
                   "example": "any"
                 }
               }
@@ -66,6 +312,9 @@
           "201": {
             "description": "Created"
           },
+          "401": {
+            "description": "Unauthorized"
+          },
           "412": {
             "description": "Precondition Failed"
           },
@@ -75,9 +324,13 @@
         }
       }
     },
-    "/characters/{id}": {
+    "/employees/{id}": {
       "get": {
-        "description": "",
+        "tags": [
+          "Employees"
+        ],
+        "summary": "Get employee by Id",
+        "description": "To get an Employee by Id, Create an Employee",
         "produces": [
           "application/json"
         ],
@@ -95,11 +348,18 @@
           },
           "400": {
             "description": "Bad Request"
+          },
+          "500": {
+            "description": "Internal Server Error"
           }
         }
       },
       "put": {
-        "description": "",
+        "tags": [
+          "Employees"
+        ],
+        "summary": "Update employee by Id",
+        "description": "To update an Employee by Id, create an Employee",
         "parameters": [
           {
             "name": "id",
@@ -122,13 +382,13 @@
                 "gender": {
                   "example": "any"
                 },
-                "race": {
+                "personalEmail": {
                   "example": "any"
                 },
-                "vehicle": {
+                "jobTitle": {
                   "example": "any"
                 },
-                "affiliation": {
+                "workEmail": {
                   "example": "any"
                 }
               }
@@ -142,6 +402,9 @@
           "400": {
             "description": "Bad Request"
           },
+          "401": {
+            "description": "Unauthorized"
+          },
           "412": {
             "description": "Precondition Failed"
           },
@@ -151,7 +414,11 @@
         }
       },
       "delete": {
-        "description": "",
+        "tags": [
+          "Employees"
+        ],
+        "summary": "Deletes employee by Id",
+        "description": "To delete an Employee by Id, create an Employee",
         "parameters": [
           {
             "name": "id",
@@ -162,10 +429,13 @@
         ],
         "responses": {
           "200": {
-            "description": "No Content"
+            "description": "OK"
           },
           "400": {
             "description": "Bad Request"
+          },
+          "401": {
+            "description": "Unauthorized"
           },
           "500": {
             "description": "Internal Server Error"
@@ -173,9 +443,13 @@
         }
       }
     },
-    "/planets/": {
+    "/deli/": {
       "get": {
-        "description": "",
+        "tags": [
+          "Deli"
+        ],
+        "summary": "Get all deli items",
+        "description": "To get a deli list, Create a deli item",
         "produces": [
           "application/json"
         ],
@@ -183,11 +457,18 @@
         "responses": {
           "200": {
             "description": "OK"
+          },
+          "500": {
+            "description": "Internal Server Error"
           }
         }
       },
       "post": {
-        "description": "",
+        "tags": [
+          "Deli"
+        ],
+        "summary": "Create a deli item",
+        "description": "Create a new deli item, Id is autogenerated",
         "parameters": [
           {
             "name": "body",
@@ -195,22 +476,22 @@
             "schema": {
               "type": "object",
               "properties": {
-                "planetName": {
+                "type": {
                   "example": "any"
                 },
-                "region": {
+                "productName": {
                   "example": "any"
                 },
-                "sector": {
+                "price": {
                   "example": "any"
                 },
-                "suns": {
+                "calories": {
                   "example": "any"
                 },
-                "moons": {
+                "quantity": {
                   "example": "any"
                 },
-                "terrain": {
+                "count": {
                   "example": "any"
                 }
               }
@@ -221,8 +502,8 @@
           "201": {
             "description": "Created"
           },
-          "400": {
-            "description": "Bad Request"
+          "401": {
+            "description": "Unauthorized"
           },
           "412": {
             "description": "Precondition Failed"
@@ -233,9 +514,13 @@
         }
       }
     },
-    "/planets/{id}": {
+    "/deli/{id}": {
       "get": {
-        "description": "",
+        "tags": [
+          "Deli"
+        ],
+        "summary": "Get deli item by Id",
+        "description": "To get a deli item by Id, Create a deli item",
         "produces": [
           "application/json"
         ],
@@ -253,11 +538,18 @@
           },
           "400": {
             "description": "Bad Request"
+          },
+          "500": {
+            "description": "Internal Server Error"
           }
         }
       },
       "put": {
-        "description": "",
+        "tags": [
+          "Deli"
+        ],
+        "summary": "Update a deli item by Id",
+        "description": "Update an excisting deli item by Id",
         "parameters": [
           {
             "name": "id",
@@ -271,22 +563,22 @@
             "schema": {
               "type": "object",
               "properties": {
-                "planetName": {
+                "type": {
                   "example": "any"
                 },
-                "region": {
+                "productName": {
                   "example": "any"
                 },
-                "sector": {
+                "price": {
                   "example": "any"
                 },
-                "suns": {
+                "calories": {
                   "example": "any"
                 },
-                "moons": {
+                "quantity": {
                   "example": "any"
                 },
-                "terrain": {
+                "count": {
                   "example": "any"
                 }
               }
@@ -300,6 +592,9 @@
           "400": {
             "description": "Bad Request"
           },
+          "401": {
+            "description": "Unauthorized"
+          },
           "412": {
             "description": "Precondition Failed"
           },
@@ -309,7 +604,11 @@
         }
       },
       "delete": {
-        "description": "",
+        "tags": [
+          "Deli"
+        ],
+        "summary": "Delete a deli item by Id",
+        "description": "Delete an excisting deli item by Id",
         "parameters": [
           {
             "name": "id",
@@ -320,10 +619,215 @@
         ],
         "responses": {
           "200": {
+            "description": "OK"
+          },
+          "400": {
+            "description": "Bad Request"
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "500": {
+            "description": "Internal Server Error"
+          }
+        }
+      }
+    },
+    "/produce/": {
+      "get": {
+        "tags": [
+          "Produce"
+        ],
+        "summary": "Get full Produce list",
+        "description": "Get all Produce from the Produce Collection, Creates multiple Produce",
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": "OK"
+          },
+          "500": {
+            "description": "Internal Server Error"
+          }
+        }
+      },
+      "post": {
+        "tags": [
+          "Produce"
+        ],
+        "summary": "Create a new Produce item",
+        "description": "Create a new Produce item from the Produce Collection",
+        "parameters": [
+          {
+            "name": "body",
+            "in": "body",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "department": {
+                  "example": "any"
+                },
+                "type": {
+                  "example": "any"
+                },
+                "color": {
+                  "example": "any"
+                },
+                "quality": {
+                  "example": "any"
+                },
+                "peakSeason": {
+                  "example": "any"
+                },
+                "amountInStock": {
+                  "example": "any"
+                },
+                "unit": {
+                  "example": "any"
+                },
+                "productName": {
+                  "example": "any"
+                }
+              }
+            }
+          }
+        ],
+        "responses": {
+          "201": {
+            "description": "Created"
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "412": {
+            "description": "Precondition Failed"
+          },
+          "500": {
+            "description": "Internal Server Error"
+          }
+        }
+      }
+    },
+    "/produce/{id}": {
+      "get": {
+        "tags": [
+          "Produce"
+        ],
+        "summary": "Get Single Produce list",
+        "description": "Get a Single Produce from the Produce Collection",
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          },
+          "400": {
+            "description": "Bad Request"
+          },
+          "500": {
+            "description": "Internal Server Error"
+          }
+        }
+      },
+      "put": {
+        "tags": [
+          "Produce"
+        ],
+        "summary": "Modify a Produce item",
+        "description": "Modify a Produce item from the Produce Collection",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "body",
+            "in": "body",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "department": {
+                  "example": "any"
+                },
+                "type": {
+                  "example": "any"
+                },
+                "color": {
+                  "example": "any"
+                },
+                "quality": {
+                  "example": "any"
+                },
+                "peakSeason": {
+                  "example": "any"
+                },
+                "amountInStock": {
+                  "example": "any"
+                },
+                "unit": {
+                  "example": "any"
+                },
+                "productName": {
+                  "example": "any"
+                }
+              }
+            }
+          }
+        ],
+        "responses": {
+          "204": {
             "description": "No Content"
           },
           "400": {
             "description": "Bad Request"
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "412": {
+            "description": "Precondition Failed"
+          },
+          "500": {
+            "description": "Internal Server Error"
+          }
+        }
+      },
+      "delete": {
+        "tags": [
+          "Produce"
+        ],
+        "summary": "Delete a Produce item",
+        "description": "Delete a Produce item from the Produce Collection",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          },
+          "400": {
+            "description": "Bad Request"
+          },
+          "401": {
+            "description": "Unauthorized"
           },
           "500": {
             "description": "Internal Server Error"

@@ -1,37 +1,84 @@
-//LOCALHOST CHaracters Collection
-### Get Character list
-GET http://localhost:3000/characters HTTP/1.1
-### Get Character by Id
-GET http://localhost:3000/characters/6452e0c8e12b6022b2bdcf54 HTTP/1.1
+//LOCALHOST Employee Collection
 
-### Create Character
-POST http://localhost:3000/characters HTTP/1.1
+### Get Employee list
+GET http://localhost:3000/employee HTTP/1.1
+### Get Employee by Id
+GET http://localhost:3000/employee/6452e0c8e12 HTTP/1.1
+
+### Create Employee
+POST http://localhost:3000/employee HTTP/1.1
 Content-Type: application/json
 
 {
-    "firstName":"Darth",
-    "lastName":"Vader",
-    "gender":"Male",
-    "race":"Human",
-    "vehicle":"Advanced TIE Fighter",
-    "affiliation":"Sith"
+    "firstName": "Michael",
+    "lastName": "Smith",
+    "gender": "Male",
+    "personalEmail": "michaelsmith@gmail.com",
+    "jobTitle": "Produce Department Manager",
+    "workEmail": "michaelsmith@grocerystore.com"
 }
 
-### Update a Character
-PUT http://localhost:3000/characters/645333785cb09e305b571c5c HTTP/1.1
+### Update a Employee
+PUT http://localhost:3000/employee/645333785 HTTP/1.1
 content-type: application/json
 
 {
-    "firstName":"Darth",
-    "lastName":"Vader",
-    "gender":"Male",
-    "race":"Human",
-    "vehicle":"Advanced TIE Fighter",
-    "affiliation":"Empire"
+    "firstName": "Michael",
+    "lastName": "Smith",
+    "gender": "Male",
+    "personalEmail": "michaelsmith@gmail.com",
+    "jobTitle": "Store Manager",
+    "workEmail": "michaelsmith@grocerystore.com"
 }
 
-### Delete Character
-DELETE http://localhost:3000/characters/645333785cb09e305b571c5c HTTP/1.1
+### Delete Employee
+DELETE http://localhost:3000/employee/645333785 HTTP/1.1
+
+
+
+=======
+//LOCALHOST Products Collection
+### Get produce list
+GET http://localhost:3000/produce HTTP/1.1
+Content-Type: application/json
+
+### Get Character by Id
+GET http://localhost:3000/produce/645f067e4a28bac2b7783970 HTTP/1.1
+Content-Type: application/json
+
+### Create Character
+POST http://localhost:3000/produce HTTP/1.1
+Content-Type: application/json
+
+   {
+    "department": "produce",
+    "type": "vegetable",
+    "color": "green",
+    "quality": "superior",
+    "peakSeason": "year around", 
+	"amountInStock": 5,
+    "unit":"head",
+    "productName": "Lettuce",
+	}
+
+### Update a Character
+PUT http://localhost:3000/produce/645f07b64a28bac2b7783972 HTTP/1.1
+content-type: application/json
+
+{
+	"productName": "Beets",
+    "department": "produce",
+    "type": "vegetable",
+    "color": "purple",
+    "quality": "superior",
+    "peakSeason": "October", 
+	"unit":"bunch",
+	"amountInStock": 5,
+	"pricePerUnit": 2.00
+	}
+
+### Delete Product
+DELETE http://localhost:3000/produce/645f07b64a28bac2b7783972 HTTP/1.1
 
 //LOCALHOST Planets Collection
 ### Get Planet list
@@ -69,39 +116,45 @@ content-type: application/json
 DELETE http://localhost:3000/planets/6455bddf8a1a279f08700b20 HTTP/1.1
 
 //PRODUCTION Deploy
-### Get Character list
-GET https://ryanalvordcit341.onrender.com/characters HTTP/1.1
-### Get Character by Id
-GET https://ryanalvordcit341.onrender.com/characters6452e0c8e12b6022b2bdcf54 HTTP/1.1
+### Get Produce list
+GET https://ryanalvordcit341.onrender.com/produce HTTP/1.1
 
-### Create Character
-POST https://ryanalvordcit341.onrender.com/characters HTTP/1.1
+### Get Product by Id
+GET https://ryanalvordcit341.onrender.com/produce/645f067e4a28bac2b7783970 HTTP/1.1
+
+### Create Produce
+POST https://cte341-final-project.onrender.com/produce HTTP/1.1
 Content-Type: application/json
 
 {
-    "firstName":"Darth",
-    "lastName":"Vader",
-    "gender":"Male",
-    "race":"Human",
-    "vehicle":"Advanced TIE Fighter",
-    "affiliation":"Sith"
-}
+	"productName": "chives",
+    "department": "produce",
+    "type": "vegetable",
+    "color": "green",
+    "quality": "superior",
+    "peakSeason": "year around", 
+	"unit":"bunch",
+	"amountInStock": 5,
+	"pricePerUnit": 1.50
+	}
 
-### Update a Character
-PUT https://ryanalvordcit341.onrender.com/characters/645333785cb09e305b571c5c HTTP/1.1
+### Update a Produce
+PUT https://cte341-final-project.onrender.com/produce/645f067e4a28bac2b7783970 HTTP/1.1
 content-type: application/json
 
 {
-    "firstName":"Darth",
-    "lastName":"Vader",
-    "gender":"Male",
-    "race":"Human",
-    "vehicle":"Advanced TIE Fighter",
-    "affiliation":"Empire"
-}
+    "department": "produce",
+    "type": "vegetable",
+    "color": "green",
+    "quality": "superior",
+    "peakSeason": "year around", 
+	"amountInStock": 10,
+    "unit":"bunch",
+    "productName": "chives",
+	}
 
-### Delete Character
-DELETE https://ryanalvordcit341.onrender.com/characters/645333785cb09e305b571c5c HTTP/1.1
+### Delete Product
+DELETE https://cte341-final-project.onrender.com/produce/645f08be4a28bac2b7783976 HTTP/1.1
 
 //LOCALHOST Planets Collection
 ### Get Planet list
