@@ -1,4 +1,5 @@
 const express = require('express');
+var path = require('path');
 const cookieParser = require('cookie-parser');
 const bodyParser = require('body-parser');
 const mongodb = require('./db/connect.js');
@@ -7,11 +8,18 @@ const session = require('express-session');
 const GitHubStrategy = require('passport-github2').Strategy;
 const cors = require('cors');
 
+const users = require('./routes/users')
+
 const port = process.env.PORT || 3000;
 const app = express();
 
 app
   .use(bodyParser.json())
+  .use(bodyParser.urlencoded({ extended: false }))
+  .use(cookieParser())
+
+  .use('/', users)
+  
   .use(session({
     secret: "secret",
     resave: false,
@@ -73,12 +81,6 @@ app.get('/github/callback', passport.authenticate('github', {
     req.session.user = req.user;
     res.redirect('/');
   });
-
-app.use(bodyParser.json());
-app.use(bodyParser.urlencoded({ extended: false }));
-app.use(cookieParser())
-
-app.use('/', users);
 
 module.exports = app;
 
