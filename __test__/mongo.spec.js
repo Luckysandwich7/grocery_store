@@ -5,17 +5,15 @@ dotenv.config();
 describe('insert', () => {
     let connection;
     let db;
-
     beforeAll(async () => {
-
         connection = await MongoClient.connect(process.env.MONGODB_URI, {
-            useNewUrlParser: true,
-            useUnifiedTopology: true,
+          useNewUrlParser: true,
+          useUnifiedTopology: true,
         });
-        db = await connection.db('users')
+    db = await connection.db('users')
     });
     afterAll(async() => {
-        await connection.close()
+        await connection.close() 
     })
 
     it('should insert a new user into the users collection', async () => {
