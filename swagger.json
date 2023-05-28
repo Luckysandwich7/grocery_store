@@ -27,6 +27,10 @@
     {
       "name": "Produce",
       "description": "Add or make edits to the Bakery Items in the Grocery Store Database"
+    },
+    {
+      "name": "Seasonal",
+      "Description": "Add or make edits to the Seasonal Items in the Grocery Store Database"
     }
   ],
   "schemes": [
@@ -35,9 +39,6 @@
   "paths": {
     "/login": {
       "get": {
-        "tags": [
-          "User"
-        ],
         "description": "",
         "parameters": [],
         "responses": {}
@@ -45,9 +46,13 @@
     },
     "/logout": {
       "get": {
-        "tags": [
-          "User"
-        ],
+        "description": "",
+        "parameters": [],
+        "responses": {}
+      }
+    },
+    "/users/report": {
+      "get": {
         "description": "",
         "parameters": [],
         "responses": {}
@@ -55,10 +60,7 @@
     },
     "/api-docs": {
       "get": {
-        "tags": [
-          "User"
-        ],
-        "description": "Use the api-doc to GET, POST, PUT, or DELETE",
+        "description": "",
         "parameters": [],
         "responses": {}
       }
@@ -811,6 +813,208 @@
         ],
         "summary": "Delete a Produce item",
         "description": "Delete a Produce item from the Produce Collection",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          },
+          "400": {
+            "description": "Bad Request"
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "500": {
+            "description": "Internal Server Error"
+          }
+        }
+      }
+    },
+    "/seasonal/": {
+      "get": {
+        "tags": [
+          "Seasonal"
+        ],
+        "summary": "Get full Seasonal list",
+        "description": "Get all Seasonal Items from the Seasonal Collection, Creates multiple Seasonal Items",
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": "OK"
+          },
+          "500": {
+            "description": "Internal Server Error"
+          }
+        }
+      },
+      "post": {
+        "tags": [
+          "Seasonal"
+        ],
+        "summary": "Create a new Seasonal item",
+        "description": "Create a new Seasonal item from the Seasonal Collection",
+        "parameters": [
+          {
+            "name": "body",
+            "in": "body",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "department": {
+                  "example": "any"
+                },
+                "type": {
+                  "example": "any"
+                },
+                "color": {
+                  "example": "any"
+                },
+                "size": {
+                  "example": "any"
+                },
+                "season": {
+                  "example": "any"
+                },
+                "amountInStock": {
+                  "example": "any"
+                },
+                "unit": {
+                  "example": "any"
+                },
+                "productName": {
+                  "example": "any"
+                }
+              }
+            }
+          }
+        ],
+        "responses": {
+          "201": {
+            "description": "Created"
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "412": {
+            "description": "Precondition Failed"
+          },
+          "500": {
+            "description": "Internal Server Error"
+          }
+        }
+      }
+    },
+    "/seasonal/{id}": {
+      "get": {
+        "tags": [
+          "Seasonal"
+        ],
+        "summary": "Get Single Seasonal list",
+        "description": "Get a Single Seasonal item from the Seasonal Collection",
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          },
+          "400": {
+            "description": "Bad Request"
+          },
+          "500": {
+            "description": "Internal Server Error"
+          }
+        }
+      },
+      "put": {
+        "tags": [
+          "Seasonal"
+        ],
+        "summary": "Modify a Seasonal item",
+        "description": "Modify a Seasonal item from the Seasonal Collection",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "body",
+            "in": "body",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "department": {
+                  "example": "any"
+                },
+                "type": {
+                  "example": "any"
+                },
+                "color": {
+                  "example": "any"
+                },
+                "size": {
+                  "example": "any"
+                },
+                "season": {
+                  "example": "any"
+                },
+                "amountInStock": {
+                  "example": "any"
+                },
+                "unit": {
+                  "example": "any"
+                },
+                "productName": {
+                  "example": "any"
+                }
+              }
+            }
+          }
+        ],
+        "responses": {
+          "204": {
+            "description": "No Content"
+          },
+          "400": {
+            "description": "Bad Request"
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "412": {
+            "description": "Precondition Failed"
+          },
+          "500": {
+            "description": "Internal Server Error"
+          }
+        }
+      },
+      "delete": {
+        "tags": [
+          "seasonal"
+        ],
+        "summary": "Delete a seasonal item",
+        "description": "Delete a seasonal item from the seasonal Collection",
         "parameters": [
           {
             "name": "id",

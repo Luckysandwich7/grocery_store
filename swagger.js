@@ -27,7 +27,11 @@ const doc = {
   {
     "name": "Produce",
     "description": "Add or make edits to the Bakery Items in the Grocery Store Database"
-  } 
+  }, 
+  {
+    "name": "Seasonal",
+    "Description": "Add or make edits to the Seasonal Items in the Grocery Store Database"
+  }
 ]
 };
 

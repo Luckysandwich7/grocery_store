@@ -80,6 +80,21 @@ content-type: application/json
 ### Delete Product
 DELETE http://localhost:3000/produce/645f07b64a28bac2b7783972 HTTP/1.1
 
+### create seasonal item
+POST http://localhost:3000/seasonal HTTP/1.1
+content-type: application/application/json
+
+{
+    "department": "seasonal",
+    "type": "pool supply",
+    "color": "blue",
+    "size": "medium",
+    "season": "Summer",
+    "amountInStock": "32",
+    "unit": "single",
+    "productName": "Blue Pool Noodle",
+    }
+
 //LOCALHOST Planets Collection
 ### Get Planet list
 GET http://localhost:3000/planets HTTP/1.1
