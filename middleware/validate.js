@@ -113,7 +113,9 @@ const saveProduce = (req, res, next) => {
       }
     });
   };
+
 module.exports = {
+  validator,
   saveDeli,
   saveProduce,
   saveBakery,
