@@ -170,6 +170,21 @@ content-type: application/json
 
 ### Delete Product
 DELETE https://cte341-final-project.onrender.com/produce/645f08be4a28bac2b7783976 HTTP/1.1
+### create seasonal item 
+
+POST https://cte341-final-project.onrender.com/seasonal HTTP/1.1
+content-type: application/application/json
+
+{
+    "department": "seasonal",
+    "type": "pool supply",
+    "color": "blue",
+    "size": "medium",
+    "season": "Summer",
+    "amountInStock": "32",
+    "unit": "single",
+    "productName": "Blue Pool Noodle",
+    }
 
 //LOCALHOST Planets Collection
 ### Get Planet list

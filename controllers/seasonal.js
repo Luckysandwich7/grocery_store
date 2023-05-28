@@ -87,7 +87,7 @@ const updateProduct = async (req, res) => {
 };
 
 const deleteProduct = async (req, res) => {
-  // #swagger.tags=['seasonal']
+  // #swagger.tags=['Seasonal']
   // #swagger.summary= Delete a seasonal item
   // #swagger.description=Delete a seasonal item from the seasonal Collection
   if (!ObjectId.isValid(req.params.id)) {

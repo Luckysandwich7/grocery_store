@@ -1011,7 +1011,7 @@
       },
       "delete": {
         "tags": [
-          "seasonal"
+          "Seasonal"
         ],
         "summary": "Delete a seasonal item",
         "description": "Delete a seasonal item from the seasonal Collection",
