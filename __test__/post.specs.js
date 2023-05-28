@@ -67,4 +67,18 @@ describe("Test Handlers", () => {
     expect(res.header["content-type"]).toBe("application/json; charset=utf-8");
     expect(res.statusCode).toBe(201);
   });
+  test("responds to post /seasonal", async () => {
+    const res = await request.post("/seasonal").send({
+      department: "seasonal",
+      type: "pool supply",
+      color: "blue",
+      size: "medium",
+      season: "Summer",
+      amountInStock: "32",
+      unit: "single",
+      productName: "Blue Pool Noodle",
+    });
+    expect(res.header["content-type"]).toBe("application/json; charset=utf-8");
+    expect(res.statusCode).toBe(201);
+  });
 });
