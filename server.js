@@ -19,7 +19,7 @@ app
   .use(cookieParser())
 
   /* .use('/', users) */
-  
+  .use("/", require("./routes/index.js"))
   .use(session({
     secret: "secret",
     resave: false,
@@ -33,7 +33,7 @@ app
   // init pasport on every route call
   .use(passport.session())
   // allow passport to use "express-session"
-  .use("/", require("./routes/index.js"))
+  
   .use((req, res, next) => {
     res.setHeader("Access-Controll-Allow-Origin", "*")
     res.setHeader(

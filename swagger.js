@@ -8,10 +8,7 @@ const doc = {
 
   host: 'cte341-final-project.onrender.com',
   schemes: ['https'],
-  tags: [{
-    "name": "User",
-    "description": "Login or Logout of your account"
-  },
+  tags: [
   {
     "name": "Employees",
     "description": "Add or make edits to the Employee Collection in the Grocery Store Database"
