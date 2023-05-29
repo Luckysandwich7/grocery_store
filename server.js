@@ -8,7 +8,7 @@ const session = require('express-session');
 const GitHubStrategy = require('passport-github2').Strategy;
 const cors = require('cors');
 
-/* const users = require('./routes/users') */
+/* const users = require('./routes/users') 
 
 const port = process.env.PORT || 3000;
 const app = express();
@@ -19,21 +19,18 @@ app
   .use(cookieParser())
 
   /* .use('/', users) */
-  .use("/", require("./routes/index.js"))
+  
   .use(session({
     secret: "secret",
     resave: false,
     saveUninitialized: true,
   }))
-
-  app.use(cors({ methods: ['GET', 'POST', 'DELETE', 'UPDATE', 'PUT', 'PATCH']}))
-  app.use(cors({ origin: '*'}))
   // This is the basic expres session({..}) initialization.
   .use(passport.initialize())
   // init pasport on every route call
   .use(passport.session())
   // allow passport to use "express-session"
-  
+  .use("/", require("./routes/index.js"))
   .use((req, res, next) => {
     res.setHeader("Access-Controll-Allow-Origin", "*")
     res.setHeader(
@@ -46,7 +43,8 @@ app
     );
     next();
   })
-  
+  app.use(cors({ methods: ['GET', 'POST', 'DELETE', 'UPDATE', 'PUT', 'PATCH']}))
+  app.use(cors({ origin: '*'}))
 
   // added 5/26/23 
 function userReportHandler(req, res) {
