@@ -25,6 +25,9 @@ app
     resave: false,
     saveUninitialized: true,
   }))
+
+  app.use(cors({ methods: ['GET', 'POST', 'DELETE', 'UPDATE', 'PUT', 'PATCH']}))
+  app.use(cors({ origin: '*'}))
   // This is the basic expres session({..}) initialization.
   .use(passport.initialize())
   // init pasport on every route call
@@ -43,8 +46,7 @@ app
     );
     next();
   })
-  app.use(cors({ methods: ['GET', 'POST', 'DELETE', 'UPDATE', 'PUT', 'PATCH']}))
-  app.use(cors({ origin: '*'}))
+  
 
   // added 5/26/23 
 function userReportHandler(req, res) {
