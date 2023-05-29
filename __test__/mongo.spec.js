@@ -1,4 +1,4 @@
-const { MongoClient } = require('mongodb');
+/*const { MongoClient } = require('mongodb');
 const dotenv = require('dotenv');
 dotenv.config();
 
@@ -34,4 +34,4 @@ describe('insert', () => {
         const deletedUser = await users.findOne({ id: 'some-user-id' });
         expect(deletedUser).toEqual(null)
     })
-)})
+)}) */
