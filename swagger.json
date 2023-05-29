@@ -9,10 +9,6 @@
   "basePath": "/",
   "tags": [
     {
-      "name": "User",
-      "description": "Login or Logout of your account"
-    },
-    {
       "name": "Employees",
       "description": "Add or make edits to the Employee Collection in the Grocery Store Database"
     },
@@ -45,13 +41,6 @@
       }
     },
     "/logout": {
-      "get": {
-        "description": "",
-        "parameters": [],
-        "responses": {}
-      }
-    },
-    "/users/report": {
       "get": {
         "description": "",
         "parameters": [],
