@@ -17,10 +17,10 @@ router.get('/logout', function (req, res, next) {
         res.redirect('/');
     });
 });
-function userReportHandler(req, res) {
+/* function userReportHandler(req, res) {
     res.render('userreport', { title: 'Users Report' });
 }
 
-router.get('/users/report', userReportHandler);
+router.get('/users/report', userReportHandler); */
 
 module.exports = router;

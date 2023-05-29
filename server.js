@@ -8,7 +8,7 @@ const session = require('express-session');
 const GitHubStrategy = require('passport-github2').Strategy;
 const cors = require('cors');
 
-const users = require('./routes/users')
+/* const users = require('./routes/users') */
 
 const port = process.env.PORT || 3000;
 const app = express();
@@ -18,7 +18,7 @@ app
   .use(bodyParser.urlencoded({ extended: false }))
   .use(cookieParser())
 
-  .use('/', users)
+  /* .use('/', users) */
   
   .use(session({
     secret: "secret",
