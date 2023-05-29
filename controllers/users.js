@@ -1,4 +1,5 @@
-const User = require('../model/user')
+/* const mongodb = require('../db/connect.js');
+const ObjectId = require('mongodb').ObjectId;
 
 exports.getUsers = (req, res, next) => {
     User.find().then(users => {
@@ -24,4 +25,4 @@ exports.postUser = async (req, res, next) => {
     }).catch(err => {
         console.log(err)
     })
-}
+} */
