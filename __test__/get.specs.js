@@ -3,7 +3,7 @@ const supertest = require('supertest');
 const { expect } = require('@jest/globals');
 const request = supertest(server);
 
-describe('Test Handlers', () => {
+/* describe('Test Handlers', () => {
     test('responds to /', async () => {
         const res = await request.get('/');
         expect(res.header['content-type']).toBe('application/json; charset=utf-8');
@@ -15,7 +15,7 @@ describe('Test Handlers', () => {
         expect(res.header['content-type']).toBe('application/json; charset=utf-8');
         expect(res.statusCode).toBe(200)
     })
-})
+}) */
 
 describe('Test Handlers', () => {
     test('responds to /', async () => {
@@ -44,6 +44,12 @@ describe('Test Handlers', () => {
 
     test('responds to /produce', async () => {
         const res = await request.get('/produce');
+        expect(res.header['content-type']).toBe('application/json; charset=utf-8');
+        expect(res.statusCode).toBe(200)
+    });
+
+    test('responds to /seasonal', async () => {
+        const res = await request.get('/seasonal');
         expect(res.header['content-type']).toBe('application/json; charset=utf-8');
         expect(res.statusCode).toBe(200)
     });

@@ -17,23 +17,19 @@ app
   .use(bodyParser.json())
   .use(bodyParser.urlencoded({ extended: false }))
   .use(cookieParser())
-
   /* .use('/', users) */
-  .use("/", require("./routes/index.js"))
   .use(session({
     secret: "secret",
     resave: false,
     saveUninitialized: true,
   }))
-
-  app.use(cors({ methods: ['GET', 'POST', 'DELETE', 'UPDATE', 'PUT', 'PATCH']}))
-  app.use(cors({ origin: '*'}))
+  
   // This is the basic expres session({..}) initialization.
   .use(passport.initialize())
   // init pasport on every route call
   .use(passport.session())
   // allow passport to use "express-session"
-  
+  .use("/", require("./routes/index.js"))
   .use((req, res, next) => {
     res.setHeader("Access-Controll-Allow-Origin", "*")
     res.setHeader(
@@ -46,15 +42,8 @@ app
     );
     next();
   })
-  
-
-  // added 5/26/23 
-function userReportHandler(req, res) {
-  res.render('userreport', { title: 'Users Report' });
-}
-
-app.get('/users/report', userReportHandler);
-// end 5/26 modification
+  app.use(cors({ methods: ['GET', 'POST', 'DELETE', 'UPDATE', 'PUT', 'PATCH']}))
+  app.use(cors({ origin: '*'}))
 
 passport.use(new GitHubStrategy({
   clientID: process.env.GITHUB_CLIENT_ID,
@@ -85,6 +74,14 @@ app.get('/github/callback', passport.authenticate('github', {
   });
 
 module.exports = app;
+
+  // added 5/26/23 
+  function userReportHandler(req, res) {
+    res.render('userreport', { title: 'Users Report' });
+  }
+  
+  app.get('/users/report', userReportHandler);
+  // end 5/26 modification
 
 mongodb.initDb((err) => {
   if (err) {
