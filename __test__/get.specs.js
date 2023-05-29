@@ -47,4 +47,10 @@ describe('Test Handlers', () => {
         expect(res.header['content-type']).toBe('application/json; charset=utf-8');
         expect(res.statusCode).toBe(200)
     });
+
+    test('responds to /seasonal', async () => {
+        const res = await request.get('/seasonal');
+        expect(res.header['content-type']).toBe('application/json; charset=utf-8');
+        expect(res.statusCode).toBe(200)
+    });
 });
