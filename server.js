@@ -5,7 +5,8 @@ const bodyParser = require('body-parser');
 const mongodb = require('./db/connect.js');
 const passport = require('passport');
 const session = require('express-session');
-const GitHubStrategy = require('passport-github2').Strategy;
+const GoogleStrategy = require('passport-google-oauth2').Strategy;
+// const GitHubStrategy = require('passport-github2').Strategy;
 const cors = require('cors');
 
  //const users = require('./routes/users') 
@@ -45,17 +46,27 @@ app
   app.use(cors({ methods: ['GET', 'POST', 'DELETE', 'UPDATE', 'PUT', 'PATCH']}))
   app.use(cors({ origin: '*'}))
 
-passport.use(new GitHubStrategy({
-  clientID: process.env.GITHUB_CLIENT_ID,
-  clientSecret: process.env.GITHUB_CLIENT_SECRET,
-  callbackURL: process.env.CALLBACK_URL
-},
-function(accessToken, refreshToken, profile, done) {
-  //User.findorCreate({githubId: profile.id }, function (err, user) {
+passport.use(new GoogleStrategy({
+    clientID: process.env.GOOGLE_CLIENT_ID,
+    clientSecret: process.env.GOOGLE_CLIENT_SECRET,
+    callbackURL: process.env.CALLBACK_URL
+  },
+  function (accessToken, refreshToken, profile, done) {
     return done(null, profile);
-  //}));
-}
+  }
 ));
+
+// passport.use(new GitHubStrategy({
+//   clientID: process.env.GITHUB_CLIENT_ID,
+//   clientSecret: process.env.GITHUB_CLIENT_SECRET,
+//   callbackURL: process.env.CALLBACK_URL
+// },
+// function(accessToken, refreshToken, profile, done) {
+//   //User.findorCreate({githubId: profile.id }, function (err, user) {
+//     return done(null, profile);
+//   //}));
+// }
+// ));
 
 passport.serializeUser((user, done) => {
   done(null, user);
@@ -66,12 +77,19 @@ passport.deserializeUser((user, done) => {
 
 app.get('/', (req, res) => {res.send(req.session.user !== undefined ? `Logged in as ${req.session.user.displayName}` : "Logged Out")});
 
-app.get('/github/callback', passport.authenticate('github', {
-  failureRedirect: '/api-docs', session: false}),
-  (req, res) => {
-    req.session.user = req.user;
-    res.redirect('/');
-  });
+app.get('/google/callback', passport.authenticate("google", {
+    failureRedirect: "/api-docs", session: false}),
+    (req, res) => {
+      req.session.user = req.user;
+      res.redirect('/');
+    });
+
+// app.get('/github/callback', passport.authenticate('github', {
+//   failureRedirect: '/api-docs', session: false}),
+//   (req, res) => {
+//     req.session.user = req.user;
+//     res.redirect('/');
+//   });
 
 module.exports = app;
 
@@ -91,4 +109,3 @@ mongodb.initDb((err) => {
     console.log(`Connected to DB and listening on ${port}`);
   }
 });
-

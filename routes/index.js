@@ -9,7 +9,8 @@ router.use('/deli', require('./deli'));
 router.use('/produce', require('./produce'));
 router.use('/seasonal', require('./seasonal'));
 
-router.get('/login', passport.authenticate('github'), (req, res) => { });
+// router.get('/login', passport.authenticate('github'), (req, res) => { });
+router.get('/login', passport.authenticate('google'), (req, res) => { });
 
 router.get('/logout', function (req, res, next) {
     req.logout(function (err) {

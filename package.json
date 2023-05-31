@@ -1,9 +1,10 @@
 {
-  "name": "best-practice",
+  "name": "cse341-projects",
   "version": "1.0.0",
-  "description": "Simple Server to display made up contacts",
+  "description": "Simple Server for a grocery store for inventory management and employees",
   "main": "server.js",
   "jest": {
+    "verbose": "true",
     "preset": "@shelf/jest-mongodb"
   },
   "scripts": {
@@ -25,11 +26,13 @@
     "dotenv": "^16.0.0",
     "express": "^4.16.3",
     "express-validator": "^7.0.1",
+    "google-oauth2": "^0.1.0",
     "joi": "^17.9.2",
     "mongodb": "^4.16.0",
     "mongoose": "^7.1.0",
     "passport": "^0.6.0",
     "passport-github2": "^0.1.12",
+    "passport-google-oauth2": "^0.2.0",
     "path": "^0.12.7",
     "swagger-ui-express": "^4.6.2",
     "validatorjs": "^3.22.1"
