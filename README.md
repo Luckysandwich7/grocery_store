@@ -82,9 +82,12 @@ HTTP GET, GET (all, single), POST, PUT, DELETE  We are each assigned a MongoDB C
 Node.js project creation All will participate in a virtual meeting
 Create git repo and share with group All will participate in a virtual meeting
 MongoDB setup All will participate in a virtual meeting
-MongoDB Collections We will each create, add data, and run tests on our own collections (collections are within the same database)
+### MongoDB Collections 
+We will each create, add data, and run tests on our own collections (collections are within the same database)
 API Swagger documentation for all API routes All will participate in a virtual meeting
+
 Video presentation of node project, all routes functioning, mongoDB data being modified, and API documentation. We plan to all be present and share our screens for each piece of work we complete. Display working Rest files for our own project topics and that everything works on different computers and not just one.
+
 # Potential Risks and Risk Mitigation Techniques
 ### What are the risks involved with you being able to finish this project in a timely manner?
 Currently our team is very responsive and accountable for their own assignments so forseeing one team member fall behind is not likely. Though something could come up that prevents a member and we will have to step up to get their part done.
