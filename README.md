@@ -2,10 +2,8 @@
 # CSE 341 Final project Proposal -grocery_store
 
 ## Contributors
-Ryan Alvord, Peace Andrew Arikpo, Sheyla Norton, Millie Swain, John Day
+### Ryan Alvord, Peace Andrew Arikpo, Sheyla Norton, Millie Swain, John Day
 Grocery Store
-
-Contents:
 ### Contents
 ### Table of COntents	
 Application Info
