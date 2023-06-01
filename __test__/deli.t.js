@@ -8,10 +8,10 @@ jest.mock('mongodb');
 
 //  Deli Controller Tests
 describe(' Deli Controller', () => {
-  createControllerTests(deliController.findAllDeli);
-  getAllTest(deliController, deliController.getAll);
-  createControllerTests(deliController.getAll);
-  createControllerTests(deliController.getSingle);
+  createControllerTests(deliController.getAllDeli);
+  getAllTest(deliController, deliController.getAllDeli);
+  createControllerTests(deliController.getAllDeli);
+  createControllerTests(deliController.getSingleDeli);
   createControllerTests(deliController.createDeli);
   createControllerTests(deliController.updateDeli);
   createControllerTests(deliController.deleteDeli);
