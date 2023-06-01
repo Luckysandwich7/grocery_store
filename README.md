@@ -64,7 +64,7 @@ Thinking about this now will be extremely helpful for you because next week when
 Plan out what tasks will get completed with each lesson remaining in the semester (Only edit highlighted text).
 ### Lesson 9 Tasks
 Project Proposal
-##3 Lesson 10 Tasks
+### Lesson 10 Tasks
 Create Git Repo
 Push to Heroku/Render
 API DOCUMENTATION is complete and available at route ‘/api-docs’
