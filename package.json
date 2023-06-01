@@ -4,7 +4,7 @@
   "description": "Simple Server to display made up contacts",
   "main": "server.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
+    "test": "jest --coverage",
     "start": "node server.js",
     "devStart": "nodemon server.js",
     "lint": "eslint .",
