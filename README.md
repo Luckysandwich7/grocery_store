@@ -6,23 +6,23 @@ Ryan Alvord, Peace Andrew Arikpo, Sheyla Norton, Millie Swain, John Day
 Grocery Store
 
 Contents:
-Contents
-General Info	1
-Application Info	2
-What will the API do?	2
-How will your API utilize a login system?	2
-What database will you use? 	2
-How will the data be stored in your database?	2
-How would a frontend be able to manage authentication state based on the data you provide?	2
-What pieces of data in your app will need to be secured? How will you demonstrate web security principles in the development of this app?	2
-What file structure and program architecture will you use for this project (how will you organize your node project)? Why?	2
-What are potential stretch challenges that you could implement to go above and beyond?	2
-API Endpoint Planning	2
-Project Scheduling and Delegation	3
-How will you divide up work in your team to ensure the following tasks all get completed?	3
-Potential Risks and Risk Mitigation Techniques	4
-What are the risks involved with you being able to finish this project in a timely manner?	4
-How will you mitigate or overcome these risks?	4
+### Contents
+### Table of COntents	
+Application Info
+What will the API do?
+How will your API utilize a login system?
+What database will you use?
+How will the data be stored in your database?
+How would a frontend be able to manage authentication state based on the data you provide?
+What pieces of data in your app will need to be secured? How will you demonstrate web security principles in the development of this app?	
+What file structure and program architecture will you use for this project (how will you organize your node project)? Why?	
+What are potential stretch challenges that you could implement to go above and beyond?	
+API Endpoint Planning	
+Project Scheduling and Delegation	
+How will you divide up work in your team to ensure the following tasks all get completed?	
+Potential Risks and Risk Mitigation Techniques	
+What are the risks involved with you being able to finish this project in a timely manner?
+How will you mitigate or overcome these risks?
 # Application Info
 ## What will the API do?
 Our API will be an inventory tracker/information hub/employee list as employees will be able to view/update/add/delete inventory of the stores departments (Deli, Bakery, and Produce) There will also be a catalog of all employees with their personal information and work contact information.
@@ -49,7 +49,7 @@ We will try to force a specific Gmail email to be able to login. For example, if
 # API Endpoint Planning
 For this section, you’ll plan out what API endpoints you’ll need for your project. 
 
-If you go to editor.swagger.io you’ll see the Pet Store application documentation that they have. This can be a good point of reference because they demonstrate how to have multiple database entities (ie: pet, store, user), and CRUD operations for each with various ways of performing them. For this section of the Final Project Proposal, you will make a list of each api endpoint that will be supplied for each database entity. 
+If you go to editor.swagger.io you’ll see the Grocery Store application documentation that they have. This can be a good point of reference because they demonstrate how to have multiple database entities (ie: pet, store, user), and CRUD operations for each with various ways of performing them. For this section of the Final Project Proposal, you will make a list of each api endpoint that will be supplied for each database entity. 
 ### So, if I was going to create the grocery store app, I’d put something like this: 
 ### Employees
 GET /employee (get full employee list)
