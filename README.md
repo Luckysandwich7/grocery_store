@@ -31,7 +31,8 @@ We will try to force a specific Gmail email to be able to login. For example, if
 For this section, you’ll plan out what API endpoints you’ll need for your project. 
 
 If you go to editor.swagger.io you’ll see the Grocery Store application documentation that they have. This can be a good point of reference because they demonstrate how to have multiple database entities (ie: pet, store, user), and CRUD operations for each with various ways of performing them. For this section of the Final Project Proposal, you will make a list of each api endpoint that will be supplied for each database entity. 
-### So, if I was going to create the grocery store app, I’d put something like this: 
+
+The grocery store app: 
 ### Employees
 GET /employee (get full employee list)
 GET /employee/{employeeId} (get employee by Id)
