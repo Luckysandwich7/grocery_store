@@ -1,4 +1,4 @@
-const produceController = require('../controllers/produce');
+const deliController = require('../controllers/deli');
 const { createControllerTests, getAllTest} = require('./test');
 const { MongoClient } = require('mongodb');
 const dotenv = require('dotenv');
@@ -12,7 +12,7 @@ describe(' Deli Controller', () => {
   getAllTest(deliController, deliController.getAll);
   createControllerTests(deliController.getAll);
   createControllerTests(deliController.getSingle);
-  createControllerTests(deliController.createProduct);
-  createControllerTests(deliController.updateProduct);
-  createControllerTests(deliController.deleteProduct);
+  createControllerTests(deliController.createDeli);
+  createControllerTests(deliController.updateDeli);
+  createControllerTests(deliController.deleteDeli);
 });
