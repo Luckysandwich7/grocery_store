@@ -1,9 +1,19 @@
-const server = require("../server");
+const app = require("../server");
 const supertest = require("supertest");
 const { expect } = require("@jest/globals");
-const request = supertest(server);
+const request = supertest(app);
 
-describe("Test Handlers", () => {
+describe('Test Handlers', () => {
+  test('responds to post /users', async () => {
+      const res = await request.post('/users').send(    {
+          firstName: "Emily",
+          lastName: "Button",
+          email: "emilyButton@gmail.com",
+          age: 25,
+      });
+      expect(res.header['content-type']).toBe('application/json; charset=utf-8');
+      expect(res.statusCode).toBe(201)
+  })
   test("responds to post /employees", async () => {
     const res = await request.post("/employees").send({
       firstName: "Shawn",
@@ -50,6 +60,20 @@ describe("Test Handlers", () => {
       amountInStock: "20",
       unit: "bunch",
       productName: "Yellow Bell Pepper",
+    });
+    expect(res.header["content-type"]).toBe("application/json; charset=utf-8");
+    expect(res.statusCode).toBe(201);
+  });
+  test("responds to post /seasonal", async () => {
+    const res = await request.post("/seasonal").send({
+      department: "seasonal",
+      type: "pool supply",
+      color: "blue",
+      size: "medium",
+      season: "Summer",
+      amountInStock: "32",
+      unit: "single",
+      productName: "Blue Pool Noodle",
     });
     expect(res.header["content-type"]).toBe("application/json; charset=utf-8");
     expect(res.statusCode).toBe(201);

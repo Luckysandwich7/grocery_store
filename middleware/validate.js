@@ -46,6 +46,30 @@ const saveProduce = (req, res, next) => {
     });
   };
 
+  const saveSeasonal = (req, res, next) => {
+    const validationRule = {
+      department: 'required|string',
+      type: 'required|string',
+      color: 'required|string',
+      size: 'required|string',
+      season: 'required|string',
+      amountInStock: 'required|integer',
+      unit: 'required|string',
+      productName: 'required|string'
+    };
+    validator(req.body, validationRule, {}, (err, status) => {
+      if (!status) {
+        res.status(412).send({
+          success: false,
+          message: 'Validation failed',
+          data: err
+        });
+      } else {
+        next();
+      }
+    });
+  };
+
   const saveBakery = (req, res, next) => {
     const validationRule = {
       type: 'required|string',
@@ -89,9 +113,12 @@ const saveProduce = (req, res, next) => {
       }
     });
   };
+
 module.exports = {
+  validator,
   saveDeli,
   saveProduce,
   saveBakery,
-  saveEmployee
+  saveEmployee, 
+  saveSeasonal
 };
