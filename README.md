@@ -48,7 +48,8 @@ From the root: server.js , swagger.js, swagger.json, package.json , package-lock
 We will try to force a specific Gmail email to be able to login. For example, if our business was called Smith’s the email would be john.smith@smiths.com. The only emails that can login are required to have the @smiths.com.
 # API Endpoint Planning
 For this section, you’ll plan out what API endpoints you’ll need for your project. 
-### If you go to editor.swagger.io you’ll see the Pet Store application documentation that they have. This can be a good point of reference because they demonstrate how to have multiple database entities (ie: pet, store, user), and CRUD operations for each with various ways of performing them. For this section of the Final Project Proposal, you will make a list of each api endpoint that will be supplied for each database entity. 
+
+If you go to editor.swagger.io you’ll see the Pet Store application documentation that they have. This can be a good point of reference because they demonstrate how to have multiple database entities (ie: pet, store, user), and CRUD operations for each with various ways of performing them. For this section of the Final Project Proposal, you will make a list of each api endpoint that will be supplied for each database entity. 
 ### So, if I was going to create the grocery store app, I’d put something like this: 
 ### Employees
 GET /employee (get full employee list)
@@ -75,9 +76,9 @@ POST /produce (create new produce)
 PUT /produce/{produceId} (update produce by Id)
 DELETE /produce/{produceId} (delete produce by Id)
 
-### Thinking about this now will be extremely helpful for you because next week when you have to create the swagger documentation for all of this and publish it to heroku so it is ready for the rest of your project.
+Thinking about this now will be extremely helpful for you because next week when you have to create the swagger documentation for all of this and publish it to heroku so it is ready for the rest of your project.
 
-# Project Scheduling and Delegation
+## Project Scheduling and Delegation
 Plan out what tasks will get completed with each lesson remaining in the semester (Only edit highlighted text).
 ### Lesson 9 Tasks
 Project Proposal
@@ -94,20 +95,17 @@ Accomplish stretch goal of only allowing specific emails to access the database.
 ### Lesson 13 Tasks
 Verify code and prepare/submit Video Presentation
 
-## How will you divide up work in your team to ensure the following tasks all get completed?
+### How will you divide up work in your team to ensure the following tasks all get completed?
 HTTP GET, GET (all, single), POST, PUT, DELETE  We are each assigned a MongoDB Collection to ensure it works
-### Node.js project creation All will participate in a virtual meeting
-### Create git repo and share with group All will participate in a virtual meeting
-### MongoDB setup All will participate in a virtual meeting
-### MongoDB Collections We will each create, add data, and run tests on our own collections (collections are within the same database)
-## API Swagger documentation for all API routes All will participate in a virtual meeting
-### Video presentation of node project, all routes functioning, mongoDB data being modified, and API documentation. We plan to all be present and share our screens for each piece of work we complete. Display working Rest files for our own project topics and that everything works on different computers and not just one.
-# Potential Risks and Risk Mitigation Techniques
+Node.js project creation All will participate in a virtual meeting
+Create git repo and share with group All will participate in a virtual meeting
+MongoDB setup All will participate in a virtual meeting
+MongoDB Collections We will each create, add data, and run tests on our own collections (collections are within the same database)
+API Swagger documentation for all API routes All will participate in a virtual meeting
+Video presentation of node project, all routes functioning, mongoDB data being modified, and API documentation. We plan to all be present and share our screens for each piece of work we complete. Display working Rest files for our own project topics and that everything works on different computers and not just one.
+## Potential Risks and Risk Mitigation Techniques
 ### What are the risks involved with you being able to finish this project in a timely manner?
-### Currently our team is very responsive and accountable for their own assignments so forseeing one team member fall behind is not likely. Though something could come up that prevents a member and we will have to step up to get their part done.
-### Testing and system errors may cause probation on completing our project. Pending Render deploys could cause us to halt and wait for it to complete to further our code and require us to meet additionally more than planned.
-## How will you mitigate or overcome these risks?
-### If someone is to fall behind or not find available to complete their task, we will all step in and work to complete their part as a team. We could still split up the work like one works on the Route, another on the Controller, etc… We work before the Office hours of the professor and TA in case we need additional help and can come prepared with real questions and issues. We will also lean on each others knowledge from past projects to overcome errors and challenges.
-
-
-
+Currently our team is very responsive and accountable for their own assignments so forseeing one team member fall behind is not likely. Though something could come up that prevents a member and we will have to step up to get their part done.
+Testing and system errors may cause probation on completing our project. Pending Render deploys could cause us to halt and wait for it to complete to further our code and require us to meet additionally more than planned.
+### How will you mitigate or overcome these risks?
+If someone is to fall behind or not find available to complete their task, we will all step in and work to complete their part as a team. We could still split up the work like one works on the Route, another on the Controller, etc… We work before the Office hours of the professor and TA in case we need additional help and can come prepared with real questions and issues. We will also lean on each others knowledge from past projects to overcome errors and challenges.
