@@ -27,7 +27,7 @@ describe(' Deli Controller', () => {
   getAllTest(employeesController, employeesController.getAll);
   createControllerTests(employeesController.getAll);
   createControllerTests(employeesController.getSingle);
-  createControllerTests(employeesController.createEmployees);
-  createControllerTests(employeesController.updateEmployees);
-  createControllerTests(employeesController.deleteEmployees);
+  createControllerTests(employeesController.createEmployee);
+  createControllerTests(employeesController.updateEmployee);
+  createControllerTests(employeesController.deleteEmployee);
 });
