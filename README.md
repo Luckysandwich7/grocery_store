@@ -5,22 +5,7 @@
 ### Ryan Alvord, Peace Andrew Arikpo, Sheyla Norton, Millie Swain, John Day
 Grocery Store
 ### Contents
-### Table of COntents	
-Application Info
-What will the API do?
-How will your API utilize a login system?
-What database will you use?
-How will the data be stored in your database?
-How would a frontend be able to manage authentication state based on the data you provide?
-What pieces of data in your app will need to be secured? How will you demonstrate web security principles in the development of this app?	
-What file structure and program architecture will you use for this project (how will you organize your node project)? Why?	
-What are potential stretch challenges that you could implement to go above and beyond?	
-API Endpoint Planning	
-Project Scheduling and Delegation	
-How will you divide up work in your team to ensure the following tasks all get completed?	
-Potential Risks and Risk Mitigation Techniques	
-What are the risks involved with you being able to finish this project in a timely manner?
-How will you mitigate or overcome these risks?
+### Table of Contents	
 # Application Info
 ## What will the API do?
 Our API will be an inventory tracker/information hub/employee list as employees will be able to view/update/add/delete inventory of the stores departments (Deli, Bakery, and Produce) There will also be a catalog of all employees with their personal information and work contact information.
