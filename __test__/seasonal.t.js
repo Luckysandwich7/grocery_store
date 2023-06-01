@@ -1,11 +1,16 @@
-const Controller = require('../controllers/');
-const createControllerTests = require('./test');
+const seasonalController = require('../controllers/seasonal');
+const { createControllerTests, getAllTest} = require('./test');
+const { MongoClient } = require('mongodb');
+const dotenv = require('dotenv');
+dotenv.config();
 
-//  Controller Tests
-describe(' Controller', () => {
-  createControllerTests(Controller.getAll);
-  createControllerTests(Controller.getSingle);
-  createControllerTests(Controller.create);
-  createControllerTests(Controller.update);
-  createControllerTests(Controller.delete);
+jest.mock('mongodb');
+
+//  seasonal Controller Tests
+describe(' seasonal Controller', () => {
+  getAllTest(seasonalController, seasonalController.getAll);
+  createControllerTests(seasonalController.getSingle);
+  createControllerTests(seasonalController.createProduct);
+  createControllerTests(seasonalController.updateProduct);
+  createControllerTests(seasonalController.deleteProduct);
 });
