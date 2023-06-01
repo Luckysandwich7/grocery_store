@@ -1,5 +1,4 @@
 const express = require('express');
-var path = require('path');
 const cookieParser = require('cookie-parser');
 const bodyParser = require('body-parser');
 const mongodb = require('./db/connect.js');
