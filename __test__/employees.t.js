@@ -23,7 +23,7 @@ jest.mock('mongodb');
 
 //  Deli Controller Tests
 describe(' Deli Controller', () => {
-  createControllerTests(employeesController.findAllEmployees);
+  createControllerTests(employeesController.getAll);
   getAllTest(employeesController, employeesController.getAll);
   createControllerTests(employeesController.getAll);
   createControllerTests(employeesController.getSingle);
