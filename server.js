@@ -49,10 +49,7 @@ app.use(cors({ origin: '*' }))
 
 
 
-
-
-
-
+// Google Auth
 // If modifying these scopes, delete token.json.
 const SCOPES = ['https://www.googleapis.com/auth/gmail.readonly'];
 // The file token.json stores the user's access and refresh tokens, and is
@@ -137,79 +134,6 @@ async function listLabels(auth) {
 
 authorize().then(listLabels).catch(console.error);
 
-// passport.use(new GitHubStrategy({
-//   clientID: process.env.GITHUB_CLIENT_ID,
-//   clientSecret: process.env.GITHUB_CLIENT_SECRET,
-//   callbackURL: process.env.CALLBACK_URL
-// },
-//   function (accessToken, refreshToken, profile, done) {
-//     //User.findorCreate({githubId: profile.id }, function (err, user) {
-//     return done(null, profile);
-//     //}));
-//   }
-// ));
-
-// passport.serializeUser((user, done) => {
-//   done(null, user);
-// });
-// passport.deserializeUser((user, done) => {
-//   done(null, user);
-// });
-
-// app.get('/', (req, res) => { res.send(req.session.user !== undefined ? `Logged in as ${req.session.user.displayName}` : "Logged Out") });
-
-// app.get('/github/callback', passport.authenticate('github', {
-//   failureRedirect: '/api-docs', session: false
-// }),
-//   (req, res) => {
-//     req.session.user = req.user;
-//     res.redirect('/');
-//   });
-
-// passport.use(
-//   new GoogleStrategy(
-//     {
-//       clientID: process.env.GOOGLE_CLIENT_ID,
-//       clientSecret: process.env.GOOGLE_CLIENT_SECRET,
-//       callbackURL: process.env.CALLBACK_URL,
-//     },
-//     function (accessToken, refreshToken, profile, done) {
-//       return done(null, profile);
-//     }
-//   )
-// );
-
-// // NOTE: Apparently, this is not used
-// // passport.serializeUser((user, done) => {
-// //   done(null, user);
-// // });
-// // passport.deserializeUser((user, done) => {
-// //   done(null, user);
-// // });
-
-// app.get("/logged-status", (req, res) => {
-//   res.send(
-//     req.session.user !== undefined
-//       ? `Logged in as ${req.session.user.displayName}`
-//       : "Logged Out"
-//   );
-// });
-
-// app.get(
-//   "/auth/google/callback",
-//   passport.authenticate("google", {
-//     failureRedirect: "/api-docs",
-//     session: false,
-//   }),
-//   customer.createCustomer
-// );
-
-// process.on("uncaughtException", (err, origin) => {
-//   console.log(
-//     process.stderr.fd,
-//     `Caught exception: ${err}\n` + `Exception origin: ${origin}`
-//   );
-// });
 
 
 
