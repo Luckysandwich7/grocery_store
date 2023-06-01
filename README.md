@@ -60,7 +60,7 @@ DELETE /produce/{produceId} (delete produce by Id)
 
 Thinking about this now will be extremely helpful for you because next week when you have to create the swagger documentation for all of this and publish it to heroku so it is ready for the rest of your project.
 
-## Project Scheduling and Delegation
+# Project Scheduling and Delegation
 Plan out what tasks will get completed with each lesson remaining in the semester (Only edit highlighted text).
 ### Lesson 9 Tasks
 Project Proposal
@@ -85,7 +85,7 @@ MongoDB setup All will participate in a virtual meeting
 MongoDB Collections We will each create, add data, and run tests on our own collections (collections are within the same database)
 API Swagger documentation for all API routes All will participate in a virtual meeting
 Video presentation of node project, all routes functioning, mongoDB data being modified, and API documentation. We plan to all be present and share our screens for each piece of work we complete. Display working Rest files for our own project topics and that everything works on different computers and not just one.
-## Potential Risks and Risk Mitigation Techniques
+# Potential Risks and Risk Mitigation Techniques
 ### What are the risks involved with you being able to finish this project in a timely manner?
 Currently our team is very responsive and accountable for their own assignments so forseeing one team member fall behind is not likely. Though something could come up that prevents a member and we will have to step up to get their part done.
 Testing and system errors may cause probation on completing our project. Pending Render deploys could cause us to halt and wait for it to complete to further our code and require us to meet additionally more than planned.
