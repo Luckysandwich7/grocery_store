@@ -38,12 +38,12 @@ Authorization and Authentication would only allow the Employees to make changes 
 ## What pieces of data in your app will need to be secured? How will you demonstrate web security principles in the development of this app?
 Employee contact information would need to be secure. Login Information would need to be secure as well. We will be using the 0Auth security tokens.
 ## What file structure and program architecture will you use for this project (how will you organize your node project)? Why?
-### Controllers > Employee.js, Bakery.js , Deli.js, Produce.js; 
-### Routes > Index.js , Swagger.js,  Employee.js, Bakery.js , Deli.js, Produce.js
-### Middleware > validate.js, authenticate.js
-### Helper > validate.js
-### db > connect.js 
-### From the root: server.js , swagger.js, swagger.json, package.json , package-lock.json, .env file, gitignore file (for confidentiality), rest file for testing, 
+Controllers > Employee.js, Bakery.js , Deli.js, Produce.js; 
+Routes > Index.js , Swagger.js,  Employee.js, Bakery.js , Deli.js, Produce.js
+Middleware > validate.js, authenticate.js
+Helper > validate.js
+db > connect.js 
+From the root: server.js , swagger.js, swagger.json, package.json , package-lock.json, .env file, gitignore file (for confidentiality), rest file for testing, 
 ## What are potential stretch challenges that you could implement to go above and beyond?
 We will try to force a specific Gmail email to be able to login. For example, if our business was called Smith’s the email would be john.smith@smiths.com. The only emails that can login are required to have the @smiths.com.
 # API Endpoint Planning
