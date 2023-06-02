@@ -11,8 +11,8 @@ const cors = require('cors');
 const fs = require('fs').promises;
 const path = require('path');
 const process = require('process');
-const {authenticate} = require('@google-cloud/local-auth');
-const {google} = require('googleapis');
+const { authenticate } = require('@google-cloud/local-auth');
+const { google } = require('googleapis');
 
 
 const port = process.env.PORT || 3000;
@@ -47,9 +47,40 @@ app.use(cors({ methods: ['GET', 'POST', 'DELETE', 'UPDATE', 'PUT', 'PATCH'] }))
 app.use(cors({ origin: '*' }))
 
 
+// -------        Github Auth       ------//
+
+passport.use(new GitHubStrategy({
+  clientID: process.env.GITHUB_CLIENT_ID,
+  clientSecret: process.env.GITHUB_CLIENT_SECRET,
+  callbackURL: process.env.CALLBACK_URL
+},
+  function (accessToken, refreshToken, profile, done) {
+    //User.findorCreate({githubId: profile.id }, function (err, user) {
+    return done(null, profile);
+    //}));
+  }
+));
+
+passport.serializeUser((user, done) => {
+  done(null, user);
+});
+passport.deserializeUser((user, done) => {
+  done(null, user);
+});
+
+app.get('/', (req, res) => { res.send(req.session.user !== undefined ? `Logged in as ${req.session.user.displayName}` : "Logged Out") });
+
+app.get('/github/callback', passport.authenticate('github', {
+  failureRedirect: '/api-docs', session: false
+}),
+  (req, res) => {
+    req.session.user = req.user;
+    res.redirect('/');
+  });
 
 
-// Google Auth
+// -------        Google GMail Auth       ------//
+
 // If modifying these scopes, delete token.json.
 const SCOPES = ['https://www.googleapis.com/auth/gmail.readonly'];
 // The file token.json stores the user's access and refresh tokens, and is
@@ -117,7 +148,7 @@ async function authorize() {
  * @param {google.auth.OAuth2} auth An authorized OAuth2 client.
  */
 async function listLabels(auth) {
-  const gmail = google.gmail({version: 'v1', auth});
+  const gmail = google.gmail({ version: 'v1', auth });
   const res = await gmail.users.labels.list({
     userId: 'me',
   });
@@ -133,7 +164,6 @@ async function listLabels(auth) {
 }
 
 authorize().then(listLabels).catch(console.error);
-
 
 
 
