@@ -4,7 +4,7 @@ const mongodb = require('./db/connect.js');
 const passport = require('passport');
 const session = require('express-session');
 const GitHubStrategy = require('passport-github2').Strategy;
-// const GoogleStrategy = require('passport-google-oauth2').Strategy;
+const GoogleStrategy = require('passport-google-oauth2').Strategy;
 const cors = require('cors');
 
 // Google Auth
