@@ -47,51 +47,51 @@ app.use(cors({ methods: ['GET', 'POST', 'DELETE', 'UPDATE', 'PUT', 'PATCH'] }))
 app.use(cors({ origin: '*' }))
 
 
-// -------        Github Auth       ------//
+// // -------        Github Auth       ------//
 
-passport.use(new GitHubStrategy({
-  clientID: process.env.GITHUB_CLIENT_ID,
-  clientSecret: process.env.GITHUB_CLIENT_SECRET,
-  callbackURL: process.env.CALLBACK_URL
-},
-  function (accessToken, refreshToken, profile, done) {
-    //User.findorCreate({githubId: profile.id }, function (err, user) {
-    return done(null, profile);
-    //}));
-  }
-)); 
+// passport.use(new GitHubStrategy({
+//   clientID: process.env.GITHUB_CLIENT_ID,
+//   clientSecret: process.env.GITHUB_CLIENT_SECRET,
+//   callbackURL: process.env.CALLBACK_URL
+// },
+//   function (accessToken, refreshToken, profile, done) {
+//     //User.findorCreate({githubId: profile.id }, function (err, user) {
+//     return done(null, profile);
+//     //}));
+//   }
+// )); 
 
-// -------       Google Auth       ------//
+// // // -------       Google Auth       ------//
 
-passport.use(new GoogleStrategy({
-  clientID: process.env.GOOGLE_CLIENT_ID,
-  clientSecret: process.env.GOOGLE_CLIENT_SECRET,
-  callbackURL: process.env.GOOGLE_CALLBACK_URL
-},
-  function (accessToken, refreshToken, profile, done) {
-    //User.findorCreate({githubId: profile.id }, function (err, user) {
-    return done(null, profile);
-    //}));
-  }
-)); 
+// // passport.use(new GoogleStrategy({
+// //   clientID: process.env.GOOGLE_CLIENT_ID,
+// //   clientSecret: process.env.GOOGLE_CLIENT_SECRET,
+// //   callbackURL: process.env.GOOGLE_CALLBACK_URL
+// // },
+// //   function (accessToken, refreshToken, profile, done) {
+// //     //User.findorCreate({githubId: profile.id }, function (err, user) {
+// //     return done(null, profile);
+// //     //}));
+// //   }
+// // )); 
 
 
-passport.serializeUser((user, done) => {
-  done(null, user);
-});
-passport.deserializeUser((user, done) => {
-  done(null, user);
-});
+// passport.serializeUser((user, done) => {
+//   done(null, user);
+// });
+// passport.deserializeUser((user, done) => {
+//   done(null, user);
+// });
 
-app.get('/', (req, res) => { res.send(req.session.user !== undefined ? `Logged in as ${req.session.user.displayName}` : "Logged Out") });
+// app.get('/', (req, res) => { res.send(req.session.user !== undefined ? `Logged in as ${req.session.user.displayName}` : "Logged Out") });
 
-app.get('/github/callback', passport.authenticate('github', {
-  failureRedirect: '/api-docs', session: false
-}),
-  (req, res) => {
-    req.session.user = req.user;
-    res.redirect('/');
-  });
+// app.get('/github/callback', passport.authenticate('github', {
+//   failureRedirect: '/api-docs', session: false
+// }),
+//   (req, res) => {
+//     req.session.user = req.user;
+//     res.redirect('/');
+//   });
 
 
 // -------        Google GMail Auth       ------//
